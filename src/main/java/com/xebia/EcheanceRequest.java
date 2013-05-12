@@ -15,7 +15,10 @@ public class EcheanceRequest {
 
     private BigDecimal reoffer;
 
+    private boolean active;
 
+    public EcheanceRequest() {
+    }
 
     public Long getId() {
         return id;
@@ -55,5 +58,13 @@ public class EcheanceRequest {
 
     public void setReoffer(BigDecimal reoffer) {
         this.reoffer = reoffer;
+    }
+
+    public boolean getActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
