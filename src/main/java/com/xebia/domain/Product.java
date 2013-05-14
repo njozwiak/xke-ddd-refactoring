@@ -1,4 +1,4 @@
-package com.xebia;
+package com.xebia.domain;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
@@ -23,7 +23,9 @@ public class Product {
 
     private List<EcheanceRequest> echeanceRequests;
 
-    private List<DeviseConversion> deviseConversions;
+    private List<Devise> devises;
+
+    private List<Comission> comissions;
 
     public Long getId() {
         return id;
@@ -81,12 +83,12 @@ public class Product {
         this.echeanceRequests = echeanceRequests;
     }
 
-    public List<DeviseConversion> getDeviseConversions() {
-        return deviseConversions;
+    public List<Devise> getDevises() {
+        return devises;
     }
 
-    public void setDeviseConversions(List<DeviseConversion> deviseConversions) {
-        this.deviseConversions = deviseConversions;
+    public void setDevises(List<Devise> devises) {
+        this.devises = devises;
     }
 
     public List<EcheanceRequest> getEcheanceRequestActive() {

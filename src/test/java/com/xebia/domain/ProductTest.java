@@ -1,8 +1,6 @@
-package com.xebia;
+package com.xebia.domain;
 
 import com.google.common.collect.Lists;
-import org.fest.assertions.Assertions;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
