@@ -1,5 +1,11 @@
 package com.xebia.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Devise {
 
     private Long id;
@@ -8,12 +14,17 @@ public class Devise {
 
     private String isoCode;
 
+    public Devise() {
+    }
+
     public Devise(Long id, String name, String isoCode) {
         this.id = id;
         this.name = name;
         this.isoCode = isoCode;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

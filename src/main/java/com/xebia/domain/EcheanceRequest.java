@@ -1,8 +1,10 @@
 package com.xebia.domain;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Entity
 public class EcheanceRequest {
 
     private Long id;
@@ -20,6 +22,8 @@ public class EcheanceRequest {
     public EcheanceRequest() {
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -67,4 +71,5 @@ public class EcheanceRequest {
     public void setActive(boolean active) {
         this.active = active;
     }
+
 }

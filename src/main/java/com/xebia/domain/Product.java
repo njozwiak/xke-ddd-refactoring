@@ -4,11 +4,15 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@Entity
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -21,10 +25,16 @@ public class Product {
 
     private Date placeDate;
 
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = EcheanceRequest.class)
+    @JoinColumn(name="ECHEANCEREQUESTS_ID")
     private List<EcheanceRequest> echeanceRequests;
 
+    @OneToMany
+    @JoinColumn(name = "DEVISE_ID")
     private List<Devise> devises;
 
+    @OneToMany
+    @JoinColumn(name = "COMISSION_ID")
     private List<Comission> comissions;
 
     public Long getId() {
@@ -75,6 +85,14 @@ public class Product {
         this.placeDate = placeDate;
     }
 
+    public List<Comission> getComissions() {
+        return comissions;
+    }
+
+    public void setComissions(List<Comission> comissions) {
+        this.comissions = comissions;
+    }
+
     public List<EcheanceRequest> getEcheanceRequests() {
         return echeanceRequests;
     }
@@ -92,7 +110,7 @@ public class Product {
     }
 
     public List<EcheanceRequest> getEcheanceRequestActive() {
-        Iterable<EcheanceRequest> activeEcheances = Iterables.filter(echeanceRequests, new Predicate<EcheanceRequest>() {
+        Iterable<EcheanceRequest> activeEcheances = Iterables.filter(getEcheanceRequests(), new Predicate<EcheanceRequest>() {
             @Override
             public boolean apply(EcheanceRequest echeanceRequest) {
                 return echeanceRequest.getActive();
