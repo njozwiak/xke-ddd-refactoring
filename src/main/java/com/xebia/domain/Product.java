@@ -31,7 +31,7 @@ public class Product {
 
     @OneToMany
     @JoinColumn(name = "DEVISE_ID")
-    private List<Devise> devises;
+    private List<Currency> currencies;
 
     @OneToMany
     @JoinColumn(name = "COMISSION_ID")
@@ -101,12 +101,12 @@ public class Product {
         this.echeanceRequests = echeanceRequests;
     }
 
-    public List<Devise> getDevises() {
-        return devises;
+    public List<Currency> getCurrencies() {
+        return currencies;
     }
 
-    public void setDevises(List<Devise> devises) {
-        this.devises = devises;
+    public void setCurrencies(List<Currency> currencies) {
+        this.currencies = currencies;
     }
 
     public List<EcheanceRequest> getEcheanceRequestActive() {
