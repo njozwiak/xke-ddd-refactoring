@@ -52,4 +52,8 @@ public class Currency {
     public void setIsoCode(String isoCode) {
         this.isoCode = isoCode;
     }
+
+    public boolean equals (Currency currency) {
+        return this.getIsoCode().equalsIgnoreCase(currency.getIsoCode());
+    }
 }
