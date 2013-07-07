@@ -6,7 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Devise {
+public class Currency {
+
+    public static final String EUR_ISO = "EUR";
+
+    public static final String USD_ISO = "USD";
 
     private Long id;
 
@@ -14,10 +18,10 @@ public class Devise {
 
     private String isoCode;
 
-    public Devise() {
+    public Currency() {
     }
 
-    public Devise(Long id, String name, String isoCode) {
+    public Currency(Long id, String name, String isoCode) {
         this.id = id;
         this.name = name;
         this.isoCode = isoCode;
