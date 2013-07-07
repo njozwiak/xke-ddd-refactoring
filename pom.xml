@@ -6,7 +6,7 @@
     <groupId>xke-ddd-refactoring</groupId>
     <artifactId>xke-ddd-refactoring</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <guava.version>14.0</guava.version>
