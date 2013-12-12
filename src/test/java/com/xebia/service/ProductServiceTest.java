@@ -13,7 +13,7 @@ public class ProductServiceTest {
     private ProductService productService;
 
     @Mock
-    private DataService dataService;
+    private ProductDataService dataService;
 
     @Before
     public void init() throws Exception {

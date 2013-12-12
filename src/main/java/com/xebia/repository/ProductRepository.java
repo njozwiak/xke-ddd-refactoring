@@ -5,45 +5,37 @@ import com.xebia.domain.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.inject.Provider;
 import javax.persistence.EntityManager;
 
 public class ProductRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductRepository.class);
 
-    private Provider<EntityManager> entityManagerProvider;
+    private EntityManager entityManager;
 
     @Inject
-    public ProductRepository(Provider<EntityManager> entityManagerProvider) {
-        this.entityManagerProvider = entityManagerProvider;
+    public ProductRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     public Product findOne(Long id) {
-        EntityManager entityManager = entityManagerProvider.get();
-
         try {
             return entityManager.find(Product.class, id);
-        }
-        finally {
+        } finally {
             entityManager.close();
         }
     }
 
     public void save(Product product) {
-        EntityManager entityManager = entityManagerProvider.get();
-
         try {
             entityManager.getTransaction().begin();
             entityManager.merge(product);
             entityManager.getTransaction().commit();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             entityManager.getTransaction().rollback();
 
             LOGGER.error("Unable to save product: %s", e.getCause());
-        }
-        finally {
+        } finally {
             entityManager.close();
         }
     }
