@@ -1,10 +1,18 @@
 package com.xebia.domain;
 
-import javax.persistence.*;
+
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
+@TypeDef(name = "productDecimal", typeClass = ProductDecimalType.class)
 public class EcheanceRequest {
 
     private Long id;
@@ -13,7 +21,8 @@ public class EcheanceRequest {
 
     private Date endDate;
 
-    private BigDecimal crd;
+    @Type(type = "productDecimal")
+    private ProductDecimal crd;
 
     private BigDecimal reoffer;
 
@@ -48,11 +57,11 @@ public class EcheanceRequest {
         this.endDate = endDate;
     }
 
-    public BigDecimal getCrd() {
+    public ProductDecimal getCrd() {
         return crd;
     }
 
-    public void setCrd(BigDecimal crd) {
+    public void setCrd(ProductDecimal crd) {
         this.crd = crd;
     }
 
