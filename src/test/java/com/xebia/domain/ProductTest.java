@@ -1,6 +1,7 @@
 package com.xebia.domain;
 
 import com.google.common.collect.Lists;
+import com.xebia.domain.builder.ProductBuilder;
 import org.junit.Test;
 
 import java.util.ArrayList;

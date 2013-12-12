@@ -1,6 +1,5 @@
 package com.xebia.service;
 
-import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
@@ -8,17 +7,17 @@ import com.google.inject.Inject;
 import com.xebia.domain.Currency;
 import com.xebia.domain.EcheanceRequest;
 import com.xebia.domain.Product;
+import com.xebia.domain.ProductDecimal;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 public class ProductService {
 
-    public DataService dataService;
+    public ProductDataService dataService;
 
     @Inject
-    public ProductService(DataService dataService) {
+    public ProductService(ProductDataService dataService) {
         this.dataService = dataService;
     }
 
@@ -28,13 +27,13 @@ public class ProductService {
         List<EcheanceRequest> echeanceRequestValorises = Lists.newArrayList();
 
         for (EcheanceRequest echeanceRequest : echeanceRequestActive) {
-            BigDecimal fixingPourDate = dataService.getFixingPourDate(dateValorisation);
+            ProductDecimal fixingPourDate = dataService.getFixingPourDate(dateValorisation);
 
             EcheanceRequest echeanceRequestValorise = new EcheanceRequest();
             echeanceRequestValorise.setBeginDate(echeanceRequest.getBeginDate());
             echeanceRequestValorise.setEndDate(echeanceRequest.getEndDate());
 
-            BigDecimal crdValorise = echeanceRequest.getCrd().multiply(fixingPourDate);
+            ProductDecimal crdValorise = echeanceRequest.getCrd().multiply(fixingPourDate);
 
             if (containsFundingCurrencies(product.getCurrencies())) {
                 crdValorise = convertirEnDevise(crdValorise, dateValorisation);
@@ -49,8 +48,8 @@ public class ProductService {
         return echeanceRequestValorises;
     }
 
-    public BigDecimal convertirEnDevise(BigDecimal value, Date date) {
-        BigDecimal crossChange = dataService.getCrossChange(date);
+    public ProductDecimal convertirEnDevise(ProductDecimal value, Date date) {
+        ProductDecimal crossChange = dataService.getCrossChange(date);
 
         return value.divide(crossChange);
     }
