@@ -1,5 +1,6 @@
 package com.xebia.domain;
 
+import com.xebia.domain.currency.Currency;
 import com.xebia.domain.exception.MontantException;
 
 public class Montant {

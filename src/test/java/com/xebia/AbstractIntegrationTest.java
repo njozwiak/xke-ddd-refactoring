@@ -3,9 +3,9 @@ package com.xebia;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.xebia.domain.Comission;
+import com.xebia.domain.comission.Comission;
 import com.xebia.module.PersistenceModule;
-import com.xebia.repository.ComissionRepository;
+import com.xebia.domain.comission.ComissionRepository;
 import org.junit.Before;
 
 import java.math.BigDecimal;

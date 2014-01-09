@@ -1,7 +1,8 @@
-package com.xebia.repository;
+package com.xebia.domain.product;
 
 import com.google.inject.Inject;
 import com.xebia.AbstractIntegrationTest;
+import com.xebia.domain.product.ProductRepository;
 import org.junit.Test;
 
 public class ProductRepositoryIntegrationTest extends AbstractIntegrationTest {

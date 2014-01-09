@@ -2,11 +2,11 @@ package com.xebia.module;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
-import com.xebia.repository.ComissionRepository;
+import com.xebia.domain.comission.ComissionRepository;
 import com.xebia.repository.DeviseRepository;
-import com.xebia.repository.EcheanceRequestRepository;
-import com.xebia.repository.ProductRepository;
-import com.xebia.service.ProductService;
+import com.xebia.domain.echeance.EcheanceRequestRepository;
+import com.xebia.domain.product.ProductRepository;
+import com.xebia.domain.product.ProductService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

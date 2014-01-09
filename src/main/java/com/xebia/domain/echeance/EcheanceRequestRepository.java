@@ -1,4 +1,4 @@
-package com.xebia.repository;
+package com.xebia.domain.echeance;
 
 public class EcheanceRequestRepository {
 }

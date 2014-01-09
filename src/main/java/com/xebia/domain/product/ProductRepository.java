@@ -1,7 +1,6 @@
-package com.xebia.repository;
+package com.xebia.domain.product;
 
 import com.google.inject.Inject;
-import com.xebia.domain.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

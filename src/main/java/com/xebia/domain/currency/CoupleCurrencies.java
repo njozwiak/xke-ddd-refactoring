@@ -1,4 +1,4 @@
-package com.xebia.domain;
+package com.xebia.domain.currency;
 
 public class CoupleCurrencies {
 

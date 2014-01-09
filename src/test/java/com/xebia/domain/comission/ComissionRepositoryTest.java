@@ -1,8 +1,9 @@
-package com.xebia.repository;
+package com.xebia.domain.comission;
 
 import com.google.inject.Inject;
 import com.xebia.AbstractIntegrationTest;
-import com.xebia.domain.Comission;
+import com.xebia.domain.comission.Comission;
+import com.xebia.domain.comission.ComissionRepository;
 import org.junit.Test;
 
 import static org.fest.assertions.Assertions.assertThat;

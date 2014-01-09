@@ -1,6 +1,8 @@
-package com.xebia.domain;
+package com.xebia.domain.echeance;
 
 
+import com.xebia.domain.ProductDecimal;
+import com.xebia.domain.ProductDecimalType;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 

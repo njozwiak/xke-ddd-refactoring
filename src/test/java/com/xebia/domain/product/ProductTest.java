@@ -1,7 +1,7 @@
-package com.xebia.domain;
+package com.xebia.domain.product;
 
 import com.google.common.collect.Lists;
-import com.xebia.domain.builder.ProductBuilder;
+import com.xebia.domain.echeance.EcheanceRequest;
 import org.junit.Test;
 
 import java.util.ArrayList;

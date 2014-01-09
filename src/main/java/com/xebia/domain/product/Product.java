@@ -1,8 +1,11 @@
-package com.xebia.domain;
+package com.xebia.domain.product;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+import com.xebia.domain.comission.Comission;
+import com.xebia.domain.currency.Currency;
+import com.xebia.domain.echeance.EcheanceRequest;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,7 +1,8 @@
-package com.xebia.service;
+package com.xebia.domain.product;
 
 import com.google.common.collect.Lists;
-import com.xebia.domain.Currency;
+import com.xebia.domain.currency.Currency;
+import com.xebia.service.ProductDataService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
