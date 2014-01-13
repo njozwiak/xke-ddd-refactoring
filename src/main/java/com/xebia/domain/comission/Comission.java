@@ -1,13 +1,8 @@
 package com.xebia.domain.comission;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
 public class Comission {
 
     private Long id;
@@ -18,8 +13,6 @@ public class Comission {
 
     private BigDecimal montant;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

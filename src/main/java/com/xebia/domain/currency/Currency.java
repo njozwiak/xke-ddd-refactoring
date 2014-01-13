@@ -1,11 +1,5 @@
 package com.xebia.domain.currency;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class Currency {
 
     public static final String EUR_ISO = "EUR";
@@ -27,8 +21,6 @@ public class Currency {
         this.isoCode = isoCode;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -53,7 +45,7 @@ public class Currency {
         this.isoCode = isoCode;
     }
 
-    public boolean equals (Currency currency) {
+    public boolean equals(Currency currency) {
         return this.getIsoCode().equalsIgnoreCase(currency.getIsoCode());
     }
 }

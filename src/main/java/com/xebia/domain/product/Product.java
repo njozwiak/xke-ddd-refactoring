@@ -11,11 +11,8 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Entity
 public class Product {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -28,16 +25,10 @@ public class Product {
 
     private Date placeDate;
 
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = EcheanceRequest.class)
-    @JoinColumn(name="ECHEANCEREQUESTS_ID")
     private List<EcheanceRequest> echeanceRequests;
 
-    @OneToMany
-    @JoinColumn(name = "DEVISE_ID")
     private List<Currency> currencies;
 
-    @OneToMany
-    @JoinColumn(name = "COMISSION_ID")
     private List<Comission> comissions;
 
     public Long getId() {

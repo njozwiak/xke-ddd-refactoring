@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field">
+    <class name="com.xebia.domain.echeance.EcheanceRequest">
+        <id name="id" type="long" unsaved-value="-1">
+            <generator class="native"/>
+        </id>
+        <property name="beginDate" type="java.util.Date" />
+        <property name="endDate" type="java.util.Date" />
+        <property name="crd" type="productDecimal" />
+        <property name="reoffer" type="java.math.BigDecimal" />
+        <property name="active" type="java.lang.Boolean" />
+    </class>
+</hibernate-mapping>

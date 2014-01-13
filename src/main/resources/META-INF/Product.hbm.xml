@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field">
+    <class name="com.xebia.domain.product.Product">
+        <id name="id" type="long" unsaved-value="-1">
+            <generator class="native"/>
+        </id>
+        <property name="name" type="java.lang.String" />
+        <property name="referenceCode" type="java.lang.String" />
+        <property name="technicalCode" type="java.lang.String" />
+        <property name="marketDate" type="java.util.Date" />
+        <property name="placeDate" type="java.util.Date" />
+
+        <set name="echeanceRequests" cascade="all,delete-orphan" inverse="false" lazy="true">
+            <key column="ECHEANCEREQUESTS_ID"/>
+            <one-to-many class="com.xebia.domain.echeance.EcheanceRequest" />
+        </set>
+
+        <set name="currencies" cascade="all,delete-orphan" inverse="false" lazy="true">
+            <key column="DEVISE_ID"/>
+            <one-to-many class="com.xebia.domain.currency.Currency" />
+        </set>
+
+        <set name="comissions" cascade="all,delete-orphan" inverse="false" lazy="true">
+            <key column="COMISSION_ID"/>
+            <one-to-many class="com.xebia.domain.comission.Comission" />
+        </set>
+
+    </class>
+</hibernate-mapping>
