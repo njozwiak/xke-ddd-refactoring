@@ -1,15 +1,14 @@
 package com.xebia.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
 public class Comission {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date dateDebut;
@@ -18,8 +17,10 @@ public class Comission {
 
     private BigDecimal montant;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @ManyToOne
+    @JoinColumn(name = "Id")
+    private Product product;
+
     public Long getId() {
         return id;
     }
@@ -50,5 +51,13 @@ public class Comission {
 
     public void setMontant(BigDecimal montant) {
         this.montant = montant;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

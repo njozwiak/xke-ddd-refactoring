@@ -25,16 +25,13 @@ public class Product {
 
     private Date placeDate;
 
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = EcheanceRequest.class)
-    @JoinColumn(name="ECHEANCEREQUESTS_ID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<EcheanceRequest> echeanceRequests;
 
     @OneToMany
-    @JoinColumn(name = "DEVISE_ID")
     private List<Currency> currencies;
 
-    @OneToMany
-    @JoinColumn(name = "COMISSION_ID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<Comission> comissions;
 
     public Long getId() {

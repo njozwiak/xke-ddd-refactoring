@@ -7,11 +7,17 @@ import java.util.Date;
 @Entity
 public class EcheanceRequest {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date beginDate;
 
     private Date endDate;
+
+    @ManyToOne
+    @JoinColumn(name = "Id")
+    private Product product;
 
     private BigDecimal crd;
 
@@ -22,8 +28,6 @@ public class EcheanceRequest {
     public EcheanceRequest() {
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -46,6 +50,14 @@ public class EcheanceRequest {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public BigDecimal getCrd() {
