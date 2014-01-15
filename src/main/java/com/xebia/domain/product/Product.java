@@ -7,7 +7,6 @@ import com.xebia.domain.comission.Comission;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.echeance.EcheanceRequest;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -25,11 +24,11 @@ public class Product {
 
     private Date placeDate;
 
-    private List<EcheanceRequest> echeanceRequests;
+    private List<EcheanceRequest> echeanceRequests = Lists.newArrayList();
 
-    private List<Currency> currencies;
+    private List<Currency> currencies = Lists.newArrayList();
 
-    private List<Comission> comissions;
+    private List<Comission> comissions = Lists.newArrayList();
 
     public Long getId() {
         return id;
