@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-access="field">
     <class name="com.xebia.domain.product.Product">
@@ -12,20 +12,20 @@
         <property name="marketDate" type="java.util.Date" />
         <property name="placeDate" type="java.util.Date" />
 
-        <set name="echeanceRequests" cascade="all,delete-orphan" inverse="false" lazy="true">
+        <bag name="echeanceRequests" cascade="all,delete-orphan" inverse="false" lazy="true">
             <key column="ECHEANCEREQUESTS_ID"/>
             <one-to-many class="com.xebia.domain.echeance.EcheanceRequest" />
-        </set>
+        </bag>
 
-        <set name="currencies" cascade="all,delete-orphan" inverse="false" lazy="true">
+        <bag name="currencies" cascade="all,delete-orphan" inverse="false" lazy="true">
             <key column="DEVISE_ID"/>
             <one-to-many class="com.xebia.domain.currency.Currency" />
-        </set>
+        </bag>
 
-        <set name="comissions" cascade="all,delete-orphan" inverse="false" lazy="true">
+        <bag name="comissions" cascade="all,delete-orphan" inverse="false" lazy="true">
             <key column="COMISSION_ID"/>
             <one-to-many class="com.xebia.domain.comission.Comission" />
-        </set>
+        </bag>
 
     </class>
 </hibernate-mapping>
