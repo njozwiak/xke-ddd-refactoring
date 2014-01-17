@@ -6,13 +6,12 @@ import com.google.common.collect.Lists;
 import com.xebia.domain.comission.Comission;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.echeance.EcheanceRequest;
+import com.xebia.domain.model.Entity;
 
 import java.util.Date;
 import java.util.List;
 
-public class Product {
-
-    private Long id;
+public class Product extends Entity {
 
     private String name;
 
@@ -30,15 +29,7 @@ public class Product {
 
     private List<Comission> comissions = Lists.newArrayList();
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
+  public String getName() {
         return name;
     }
 

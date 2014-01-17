@@ -32,7 +32,6 @@ public class ProductRepositoryIntegrationTest extends AbstractIntegrationTest {
         echeanceRequest.setReoffer(BigDecimal.TEN);
 
         Product product = new Product();
-        product.setId(1L);
         product.setName("Save product test");
         product.setMarketDate(new Date());
         product.getEcheanceRequests().add(echeanceRequest);
