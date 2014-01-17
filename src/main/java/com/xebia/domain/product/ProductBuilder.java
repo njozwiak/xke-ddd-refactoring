@@ -1,6 +1,4 @@
-package com.xebia.domain.builder;
-
-import com.xebia.domain.product.Product;
+package com.xebia.domain.product;
 
 public class ProductBuilder {
 

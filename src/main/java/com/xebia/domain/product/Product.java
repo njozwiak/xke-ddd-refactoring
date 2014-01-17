@@ -1,8 +1,10 @@
 package com.xebia.domain.product;
 
+import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+
 import com.xebia.domain.comission.Comission;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.echeance.EcheanceRequest;
@@ -11,11 +13,13 @@ import com.xebia.domain.model.Entity;
 import java.util.Date;
 import java.util.List;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 public class Product extends Entity {
 
-    private String name;
+    private ProductId productId;
 
-    private String referenceCode;
+    private String name;
 
     private String technicalCode;
 
@@ -29,20 +33,30 @@ public class Product extends Entity {
 
     private List<Comission> comissions = Lists.newArrayList();
 
-  public String getName() {
+    public Product(ProductId productId, String name, String technicalCode) {
+      this.setProductId(productId);
+      this.setName(name);
+      this.setTechnicalCode(technicalCode);
+    }
+
+    protected Product() {
+    }
+
+    public ProductId getProductId() {
+      return productId;
+    }
+
+    public void setProductId(ProductId productId) {
+      checkArgument(productId != null, "ProductId is required");
+      this.productId = productId;
+    }
+
+    public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getReferenceCode() {
-        return referenceCode;
-    }
-
-    public void setReferenceCode(String referenceCode) {
-        this.referenceCode = referenceCode;
     }
 
     public String getTechnicalCode() {
@@ -91,6 +105,26 @@ public class Product extends Entity {
 
     public void setCurrencies(List<Currency> currencies) {
         this.currencies = currencies;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+      boolean equalObjects = false;
+
+      if (object != null && this.getClass() == object.getClass()) {
+        Product typedObject = (Product) object;
+        equalObjects =
+            this.productId.equals(typedObject.productId) &&
+            this.name.equals(typedObject.name) &&
+            this.technicalCode.equals(typedObject.technicalCode);
+      }
+
+      return equalObjects;
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hashCode(productId, name, technicalCode);
     }
 
     public List<EcheanceRequest> getEcheanceRequestActive() {
