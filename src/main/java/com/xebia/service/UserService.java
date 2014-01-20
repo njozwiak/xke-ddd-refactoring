@@ -14,6 +14,7 @@ public class UserService {
         user.setId(id);
         user.setFirstname("firstName_" + id);
         user.setLastname("lastName_" + id);
+        user.setPassword("password_" + id);
         user.setAddress("address_" + id);
         user.setEmail("email_" + id);
         user.setPhoneNumber("number_" + id);
@@ -29,5 +30,10 @@ public class UserService {
         }
 
         return user;
+    }
+
+    public void changePasswordForUser(Long userId, String password) {
+        User user = getUserById(userId);
+        user.setPassword(password);
     }
 }
