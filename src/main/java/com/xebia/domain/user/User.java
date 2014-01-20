@@ -1,12 +1,11 @@
 package com.xebia.domain.user;
 
+import com.xebia.domain.model.Entity;
 import com.xebia.domain.product.Product;
 
 import java.util.List;
 
-public class User {
-
-  private Long id;
+public class User extends Entity {
 
   private String firstname;
 
@@ -21,14 +20,6 @@ public class User {
   private List<Product> products;
 
   private List<Role> roles;
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
 
   public String getFirstname() {
     return firstname;

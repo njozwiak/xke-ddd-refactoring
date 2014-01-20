@@ -8,7 +8,6 @@ public class UserService {
   public User getUserById(Long id) {
 
     User user = new User();
-    user.setId(id);
     user.setFirstname("firstName_" + id);
     user.setLastname("lastName_" + id);
     user.setAddress("address_" + id);
