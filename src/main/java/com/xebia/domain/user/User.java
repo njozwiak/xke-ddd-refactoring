@@ -7,73 +7,83 @@ import java.util.List;
 
 public class User extends Entity {
 
-  private String firstname;
+    private String firstname;
 
-  private String lastname;
+    private String lastname;
 
-  private String address;
+    private String password;
 
-  private String email;
+    private String address;
 
-  private String phoneNumber;
+    private String email;
 
-  private List<Product> products;
+    private String phoneNumber;
 
-  private List<Role> roles;
+    private List<Product> products;
 
-  public String getFirstname() {
-    return firstname;
-  }
+    private List<Role> roles;
 
-  public void setFirstname(String firstname) {
-    this.firstname = firstname;
-  }
+    public String getFirstname() {
+        return firstname;
+    }
 
-  public String getLastname() {
-    return lastname;
-  }
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
-  public void setLastname(String lastname) {
-    this.lastname = lastname;
-  }
+    public String getLastname() {
+        return lastname;
+    }
 
-  public String getAddress() {
-    return address;
-  }
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
-  public void setAddress(String address) {
-    this.address = address;
-  }
+    public String getPassword() {
+        return password;
+    }
 
-  public String getEmail() {
-    return email;
-  }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    public String getAddress() {
+        return address;
+    }
 
-  public String getPhoneNumber() {
-    return phoneNumber;
-  }
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-  }
+    public String getEmail() {
+        return email;
+    }
 
-  public List<Product> getProducts() {
-    return products;
-  }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-  public void setProducts(List<Product> products) {
-    this.products = products;
-  }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-  public List<Role> getRoles() {
-    return roles;
-  }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-  public void setRoles(List<Role> roles) {
-    this.roles = roles;
-  }
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 }

@@ -8,6 +8,7 @@
         </id>
         <property name="firstname" type="java.lang.String" />
         <property name="lastname" type="java.lang.String" />
+        <property name="password" type="java.lang.String" />
         <property name="address" type="java.lang.String" />
         <property name="email" type="java.util.Date" />
         <property name="phoneNumber" type="java.util.Date" />
