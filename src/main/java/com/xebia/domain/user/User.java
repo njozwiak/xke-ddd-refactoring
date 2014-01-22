@@ -1,9 +1,12 @@
 package com.xebia.domain.user;
 
+import com.google.common.base.Strings;
 import com.xebia.domain.model.Entity;
 import com.xebia.domain.product.Product;
 
 import java.util.List;
+
+import static com.google.common.base.Strings.isNullOrEmpty;
 
 public class User extends Entity {
 
@@ -43,7 +46,7 @@ public class User extends Entity {
         return password;
     }
 
-    public void setPassword(String password) {
+    protected void setPassword(String password) {
         this.password = password;
     }
 
@@ -85,5 +88,13 @@ public class User extends Entity {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public void changePassword(String password) {
+        if(isNullOrEmpty(password)) {
+          throw new IllegalArgumentException("new password cannot be null");
+        }
+
+        this.setPassword(password);
     }
 }

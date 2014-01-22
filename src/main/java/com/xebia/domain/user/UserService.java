@@ -30,6 +30,6 @@ public class UserService {
 
     public void changePasswordForUser(Long userId, String password) {
         User user = getUserById(userId);
-        user.setPassword(password);
+        user.changePassword(password);
     }
 }
