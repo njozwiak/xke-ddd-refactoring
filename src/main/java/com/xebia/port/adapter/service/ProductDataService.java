@@ -1,10 +1,11 @@
-package com.xebia.service;
+package com.xebia.port.adapter.service;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.xebia.domain.ProductDecimal;
+import com.xebia.service.DataService;
 
 import java.math.BigDecimal;
 import java.util.Date;

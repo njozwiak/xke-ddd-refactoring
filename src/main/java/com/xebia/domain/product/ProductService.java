@@ -7,7 +7,7 @@ import com.google.inject.Inject;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.echeance.EcheanceRequest;
 import com.xebia.domain.ProductDecimal;
-import com.xebia.service.ProductDataService;
+import com.xebia.port.adapter.service.ProductDataService;
 
 import java.util.Date;
 import java.util.List;
