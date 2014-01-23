@@ -5,7 +5,7 @@ public final class Sales extends FinancialPerson {
     protected Sales() {
     }
 
-    public Sales(String identity, String lastname, String email) {
-        super(identity, lastname, email);
+    public Sales(String name, String email) {
+        super(name, email);
     }
 }

@@ -2,37 +2,27 @@ package com.xebia.domain.financialPerson;
 
 public abstract class FinancialPerson {
 
-    private String identity;
-    private String lastname;
+    private String name;
     private String email;
 
     protected FinancialPerson() {
     }
 
-    public FinancialPerson(String identity, String lastname, String email) {
-        this.identity = identity;
-        this.lastname = lastname;
+    public FinancialPerson(String name, String email) {
+        this.name = name;
         this.email = email;
     }
 
-    public String identity() {
-        return identity;
-    }
-
     public String lastname() {
-        return lastname;
+        return name;
     }
 
     public String getEmail() {
         return email;
     }
 
-    private void setIdentity(String identity) {
-        this.identity = identity;
-    }
-
-    private void setLastname(String lastname) {
-        this.lastname = lastname;
+    private void setName(String name) {
+        this.name = name;
     }
 
     private void setEmail(String email) {
