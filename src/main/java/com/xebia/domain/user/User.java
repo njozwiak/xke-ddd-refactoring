@@ -1,6 +1,5 @@
 package com.xebia.domain.user;
 
-import com.google.common.base.Strings;
 import com.xebia.domain.model.Entity;
 import com.xebia.domain.product.Product;
 
@@ -91,8 +90,8 @@ public class User extends Entity {
     }
 
     public void changePassword(String password) {
-        if(isNullOrEmpty(password)) {
-          throw new IllegalArgumentException("new password cannot be null");
+        if (isNullOrEmpty(password)) {
+            throw new IllegalArgumentException("new password cannot be null");
         }
 
         this.setPassword(password);
