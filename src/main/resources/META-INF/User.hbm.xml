@@ -18,10 +18,7 @@
             <one-to-many class="com.xebia.domain.product.Product"/>
         </bag>
 
-        <bag name="roles">
-            <key column="ROLE_ID"/>
-            <one-to-many class="com.xebia.domain.user.Role" />
-        </bag>
+        <one-to-one name="role" class="com.xebia.domain.user.Role" cascade="all" lazy="false" constrained="true"/>
 
     </class>
 </hibernate-mapping>

@@ -7,7 +7,6 @@
             <generator class="native"/>
         </id>
         <property name="roleName" type="java.lang.String" />
-        <many-to-one name="user" class="com.xebia.domain.user.User" column="user"/>
-
+        <one-to-one name="user" class="com.xebia.domain.user.User" cascade="all" lazy="false" />
     </class>
 </hibernate-mapping>

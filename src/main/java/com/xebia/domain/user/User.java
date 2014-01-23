@@ -23,7 +23,7 @@ public class User extends Entity {
 
     private List<Product> products;
 
-    private List<Role> roles;
+    private Role role;
 
     public String getFirstname() {
         return firstname;
@@ -81,12 +81,12 @@ public class User extends Entity {
         this.products = products;
     }
 
-    public List<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public void changePassword(String password) {
