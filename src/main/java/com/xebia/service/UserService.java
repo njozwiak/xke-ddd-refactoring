@@ -3,8 +3,6 @@ package com.xebia.service;
 import com.xebia.domain.Role;
 import com.xebia.domain.User;
 
-import static com.google.common.collect.Lists.newArrayList;
-
 // Simulation d'une application externe
 public class UserService {
 
@@ -23,10 +21,10 @@ public class UserService {
         role.setUser(user);
         if (id % 2 == 0) {
             role.setRoleName("trader");
-            user.setRoles(newArrayList(role));
+            user.setRole(role);
         } else {
             role.setRoleName("pricer");
-            user.setRoles(newArrayList(role));
+            user.setRole(role);
         }
 
         return user;

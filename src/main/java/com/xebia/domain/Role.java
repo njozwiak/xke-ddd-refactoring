@@ -11,8 +11,7 @@ public class Role {
 
     private String roleName;
 
-    @ManyToOne
-    @JoinColumn(name = "Id")
+    @OneToOne
     private User user;
 
     public Long getId() {

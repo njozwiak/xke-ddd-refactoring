@@ -25,8 +25,8 @@ public class User {
     @OneToMany
     private List<Product> products;
 
-    @OneToMany(mappedBy = "user")
-    private List<Role> roles;
+    @OneToOne
+    private Role role;
 
     public Long getId() {
         return id;
@@ -92,11 +92,11 @@ public class User {
         this.products = products;
     }
 
-    public List<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

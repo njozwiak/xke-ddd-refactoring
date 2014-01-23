@@ -14,6 +14,6 @@ public class UserServiceTest {
         User user = userService.getUserById(2L);
 
         assertThat(user.getFirstname()).isEqualTo("firstName_2");
-        assertThat(user.getRoles().get(0).getRoleName()).isEqualTo("trader");
+        assertThat(user.getRole().getRoleName()).isEqualTo("trader");
     }
 }
