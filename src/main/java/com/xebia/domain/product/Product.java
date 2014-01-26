@@ -1,13 +1,11 @@
 package com.xebia.domain.product;
 
 import com.google.common.base.Objects;
-import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
-
 import com.xebia.domain.comission.Comission;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.echeance.EcheanceRequest;
+import com.xebia.domain.echeance.EcheanceRequestBook;
 import com.xebia.domain.model.Entity;
 
 import java.util.Date;
@@ -27,28 +25,28 @@ public class Product extends Entity {
 
     private Date placeDate;
 
-    private List<EcheanceRequest> echeanceRequests = Lists.newArrayList();
+    private EcheanceRequestBook echeanceRequestBook = new EcheanceRequestBook();
 
     private List<Currency> currencies = Lists.newArrayList();
 
     private List<Comission> comissions = Lists.newArrayList();
 
     public Product(ProductId productId, String name, String technicalCode) {
-      this.setProductId(productId);
-      this.setName(name);
-      this.setTechnicalCode(technicalCode);
+        this.setProductId(productId);
+        this.setName(name);
+        this.setTechnicalCode(technicalCode);
     }
 
     protected Product() {
     }
 
     public ProductId getProductId() {
-      return productId;
+        return productId;
     }
 
     public void setProductId(ProductId productId) {
-      checkArgument(productId != null, "ProductId is required");
-      this.productId = productId;
+        checkArgument(productId != null, "ProductId is required");
+        this.productId = productId;
     }
 
     public String getName() {
@@ -91,16 +89,8 @@ public class Product extends Entity {
         this.comissions = comissions;
     }
 
-    public List<EcheanceRequest> getEcheanceRequests() {
-        return echeanceRequests;
-    }
-
-    public void setEcheanceRequests(List<EcheanceRequest> echeanceRequests) {
-        this.echeanceRequests = echeanceRequests;
-    }
-
     public void addEcheance(EcheanceRequest echeanceRequest) {
-        this.echeanceRequests.add(echeanceRequest);
+        this.echeanceRequestBook.getEcheanceRequests().add(echeanceRequest);
     }
 
     public List<Currency> getCurrencies() {
@@ -113,33 +103,26 @@ public class Product extends Entity {
 
     @Override
     public boolean equals(Object object) {
-      boolean equalObjects = false;
+        boolean equalObjects = false;
 
-      if (object != null && this.getClass() == object.getClass()) {
-        Product typedObject = (Product) object;
-        equalObjects =
-            this.productId.equals(typedObject.productId) &&
-            this.name.equals(typedObject.name) &&
-            this.technicalCode.equals(typedObject.technicalCode);
-      }
+        if (object != null && this.getClass() == object.getClass()) {
+            Product typedObject = (Product) object;
+            equalObjects =
+                    this.productId.equals(typedObject.productId) &&
+                            this.name.equals(typedObject.name) &&
+                            this.technicalCode.equals(typedObject.technicalCode);
+        }
 
-      return equalObjects;
+        return equalObjects;
     }
 
     @Override
     public int hashCode() {
-      return Objects.hashCode(productId, name, technicalCode);
+        return Objects.hashCode(productId, name, technicalCode);
     }
 
     public List<EcheanceRequest> getEcheanceRequestActive() {
-        Iterable<EcheanceRequest> activeEcheances = Iterables.filter(getEcheanceRequests(), new Predicate<EcheanceRequest>() {
-            @Override
-            public boolean apply(EcheanceRequest echeanceRequest) {
-                return echeanceRequest.getActive();
-            }
-        });
-
-        return Lists.newArrayList(activeEcheances);
+        return this.echeanceRequestBook.getEcheanceRequestActive();
     }
 
 }

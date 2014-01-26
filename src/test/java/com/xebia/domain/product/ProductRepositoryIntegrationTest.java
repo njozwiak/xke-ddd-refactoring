@@ -34,7 +34,7 @@ public class ProductRepositoryIntegrationTest extends AbstractIntegrationTest {
         Product product = new Product();
         product.setName("Save product test");
         product.setMarketDate(new Date());
-        product.getEcheanceRequests().add(echeanceRequest);
+        product.addEcheance(echeanceRequest);
 
         // When
         productRepository.save(product);
