@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.xebia.domain.comission.Comission;
 import com.xebia.domain.currency.Currency;
+import com.xebia.domain.currency.CurrencyBook;
 import com.xebia.domain.echeance.EcheanceRequest;
 import com.xebia.domain.echeance.EcheanceRequestBook;
 import com.xebia.domain.model.Entity;
@@ -27,7 +28,7 @@ public class Product extends Entity {
 
     private EcheanceRequestBook echeanceRequestBook = new EcheanceRequestBook();
 
-    private List<Currency> currencies = Lists.newArrayList();
+    private CurrencyBook currencyBook = new CurrencyBook();
 
     private List<Comission> comissions = Lists.newArrayList();
 
@@ -93,12 +94,12 @@ public class Product extends Entity {
         this.echeanceRequestBook.getEcheanceRequests().add(echeanceRequest);
     }
 
-    public List<Currency> getCurrencies() {
-        return currencies;
+    public CurrencyBook getCurrencyBook() {
+        return currencyBook;
     }
 
-    public void setCurrencies(List<Currency> currencies) {
-        this.currencies = currencies;
+    public void addCurrency(Currency currency) {
+        this.currencyBook.getCurrencies().add(currency);
     }
 
     @Override

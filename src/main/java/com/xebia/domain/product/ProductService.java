@@ -36,7 +36,7 @@ public class ProductService {
 
             ProductDecimal crdValorise = echeanceRequest.getCrd().multiply(fixingPourDate);
 
-            if (containsFundingCurrencies(product.getCurrencies())) {
+            if (containsFundingCurrencies(product.getCurrencyBook().getCurrencies())) {
                 crdValorise = convertirEnDevise(crdValorise, dateValorisation);
             }
 
