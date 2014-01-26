@@ -4,11 +4,12 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
+import com.xebia.domain.ProductDecimal;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.echeance.EcheanceRequest;
-import com.xebia.domain.ProductDecimal;
 import com.xebia.port.adapter.service.ProductDataService;
 
+import javax.annotation.Nullable;
 import java.util.Date;
 import java.util.List;
 
@@ -65,4 +66,14 @@ public class ProductService {
             }
         });
     }
+
+    public Integer countRemainingEcheanceAfter(Product product, final Date date) {
+        return Lists.newArrayList(Iterables.filter(product.getEcheanceRequestActive(), new Predicate<EcheanceRequest>() {
+            @Override
+            public boolean apply(@Nullable EcheanceRequest echeanceRequest) {
+                return echeanceRequest.getBeginDate().after(date);
+            }
+        })).size();
+    }
+
 }

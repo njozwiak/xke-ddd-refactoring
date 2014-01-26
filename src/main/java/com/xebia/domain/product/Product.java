@@ -99,6 +99,10 @@ public class Product extends Entity {
         this.echeanceRequests = echeanceRequests;
     }
 
+    public void addEcheance(EcheanceRequest echeanceRequest) {
+        this.echeanceRequests.add(echeanceRequest);
+    }
+
     public List<Currency> getCurrencies() {
         return currencies;
     }
@@ -137,4 +141,5 @@ public class Product extends Entity {
 
         return Lists.newArrayList(activeEcheances);
     }
+
 }

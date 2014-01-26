@@ -26,6 +26,14 @@ public class EcheanceRequest {
     public EcheanceRequest() {
     }
 
+    public EcheanceRequest(Date beginDate, Date endDate, ProductDecimal crd, BigDecimal reoffer, boolean active) {
+        this.beginDate = beginDate;
+        this.endDate = endDate;
+        this.crd = crd;
+        this.reoffer = reoffer;
+        this.active = active;
+    }
+
     public Long getId() {
         return id;
     }
