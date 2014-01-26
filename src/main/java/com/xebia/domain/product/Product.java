@@ -3,7 +3,7 @@ package com.xebia.domain.product;
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import com.xebia.domain.comission.Comission;
-import com.xebia.domain.currency.Currency;
+import com.xebia.domain.comission.ComissionBook;import com.xebia.domain.currency.Currency;
 import com.xebia.domain.currency.CurrencyBook;
 import com.xebia.domain.echeance.EcheanceRequest;
 import com.xebia.domain.echeance.EcheanceRequestBook;
@@ -30,7 +30,7 @@ public class Product extends Entity {
 
     private CurrencyBook currencyBook = new CurrencyBook();
 
-    private List<Comission> comissions = Lists.newArrayList();
+    private ComissionBook comissionBook = new ComissionBook();
 
     public Product(ProductId productId, String name, String technicalCode) {
         this.setProductId(productId);
@@ -80,14 +80,6 @@ public class Product extends Entity {
 
     public void setPlaceDate(Date placeDate) {
         this.placeDate = placeDate;
-    }
-
-    public List<Comission> getComissions() {
-        return comissions;
-    }
-
-    public void setComissions(List<Comission> comissions) {
-        this.comissions = comissions;
     }
 
     public void addEcheance(EcheanceRequest echeanceRequest) {

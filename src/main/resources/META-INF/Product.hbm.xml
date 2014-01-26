@@ -23,11 +23,6 @@
             </bag>
         </component>
 
-        <!--<bag name="echeanceRequests" cascade="all,delete-orphan" inverse="false" lazy="true">-->
-        <!--<key column="ECHEANCEREQUESTS_ID"/>-->
-        <!--<one-to-many class="com.xebia.domain.echeance.EcheanceRequest" />-->
-        <!--</bag>-->
-
         <component name="currencyBook">
             <bag name="currencies" cascade="all,delete-orphan" inverse="false" lazy="true">
                 <key column="DEVISE_ID"/>
@@ -35,10 +30,12 @@
             </bag>
         </component>
 
-        <bag name="comissions" cascade="all,delete-orphan" inverse="false" lazy="true">
-            <key column="COMISSION_ID"/>
-            <one-to-many class="com.xebia.domain.comission.Comission"/>
-        </bag>
+        <component name="comissionBook">
+            <bag name="comissions" cascade="all,delete-orphan" inverse="false" lazy="true">
+                <key column="COMISSION_ID"/>
+                <one-to-many class="com.xebia.domain.comission.Comission"/>
+            </bag>
+        </component>
 
     </class>
 </hibernate-mapping>
