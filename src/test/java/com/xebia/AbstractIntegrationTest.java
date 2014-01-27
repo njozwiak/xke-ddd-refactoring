@@ -3,9 +3,11 @@ package com.xebia;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+
 import com.xebia.domain.comission.Comission;
-import com.xebia.module.PersistenceModule;
 import com.xebia.domain.comission.ComissionRepository;
+import com.xebia.module.PersistenceModule;
+
 import org.junit.Before;
 
 import java.math.BigDecimal;
@@ -26,14 +28,13 @@ public abstract class AbstractIntegrationTest {
     }
 
     private void initDatabase() {
-        comissionRepository.save(createComission(1L, new Date(), new Date(), BigDecimal.TEN));
-        comissionRepository.save(createComission(null, new Date(), new Date(), BigDecimal.TEN));
+        comissionRepository.save(createComission(new Date(), new Date(), BigDecimal.TEN));
+        comissionRepository.save(createComission(new Date(), new Date(), BigDecimal.TEN));
     }
 
-    private Comission createComission(Long id, Date dateDebut, Date dateFin, BigDecimal montant) {
+    private Comission createComission(Date dateDebut, Date dateFin, BigDecimal montant) {
         Comission comission = new Comission();
 
-        comission.setId(id);
         comission.setDateDebut(dateDebut);
         comission.setDateFin(dateFin);
         comission.setMontant(montant);

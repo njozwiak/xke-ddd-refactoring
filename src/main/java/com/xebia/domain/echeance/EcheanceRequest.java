@@ -2,16 +2,12 @@ package com.xebia.domain.echeance;
 
 
 import com.xebia.domain.ProductDecimal;
+import com.xebia.domain.model.IdValueObject;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class EcheanceRequest {
-
-    private Long id;
+public class EcheanceRequest extends IdValueObject {
 
     private Date beginDate;
 
@@ -32,14 +28,6 @@ public class EcheanceRequest {
         this.crd = crd;
         this.reoffer = reoffer;
         this.active = active;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Date getBeginDate() {

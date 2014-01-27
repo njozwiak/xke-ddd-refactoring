@@ -1,25 +1,17 @@
 package com.xebia.domain.comission;
 
+import com.xebia.domain.model.IdValueObject;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Comission {
-
-    private Long id;
+public class Comission extends IdValueObject {
 
     private Date dateDebut;
 
     private Date dateFin;
 
     private BigDecimal montant;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Date getDateDebut() {
         return dateDebut;

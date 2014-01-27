@@ -1,6 +1,7 @@
 package com.xebia.domain.product;
 
 import com.xebia.domain.echeance.EcheanceRequest;
+
 import org.junit.Test;
 
 import java.util.List;
@@ -13,11 +14,9 @@ public class ProductTest {
     public void should_get_active_echeances() {
         //GIVEN
         EcheanceRequest echeanceRequest1 = new EcheanceRequest();
-        echeanceRequest1.setId(1L);
         echeanceRequest1.setActive(true);
 
         EcheanceRequest echeanceRequest2 = new EcheanceRequest();
-        echeanceRequest2.setId(2L);
         echeanceRequest2.setActive(false);
 
         Product product = new Product();
@@ -29,7 +28,6 @@ public class ProductTest {
 
         //THEN
         assertThat(echeanceRequestActive).hasSize(1);
-        assertThat(echeanceRequestActive).onProperty("id").containsOnly(1L);
 
     }
 }
