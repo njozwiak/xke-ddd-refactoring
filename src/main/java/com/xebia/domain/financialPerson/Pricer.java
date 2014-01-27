@@ -5,7 +5,7 @@ public final class Pricer extends FinancialPerson {
     protected Pricer() {
     }
 
-    public Pricer(String name, String email) {
+    public Pricer(String name, EmailAddress email) {
         super(name, email);
     }
 }

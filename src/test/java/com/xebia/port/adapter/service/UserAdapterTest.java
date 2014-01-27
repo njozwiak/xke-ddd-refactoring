@@ -21,7 +21,7 @@ public class UserAdapterTest {
 
     @Test
     public void should_create_sales() throws Exception {
-        User user = new UserBuilder().firstname("sales").lastname("sales").email("salesMail").build();
+        User user = new UserBuilder().firstname("sales").lastname("sales").email("salesMail@test.fr").build();
 
         Sales sales = userAdapter.toFinancialPerson(user, Sales.class);
         assertThat(sales).isNotNull();
@@ -29,7 +29,7 @@ public class UserAdapterTest {
 
     @Test
     public void should_create_pricer() throws Exception {
-        User user = new UserBuilder().firstname("pricer").lastname("pricer").email("pricerMail").build();
+        User user = new UserBuilder().firstname("pricer").lastname("pricer").email("pricerMail@test.fr").build();
 
         Pricer pricer = userAdapter.toFinancialPerson(user, Pricer.class);
         assertThat(pricer).isNotNull();
@@ -37,7 +37,7 @@ public class UserAdapterTest {
 
     @Test
     public void should_create_trader() throws Exception {
-        User user = new UserBuilder().firstname("trader").lastname("trader").email("traderMail").build();
+        User user = new UserBuilder().firstname("trader").lastname("trader").email("traderMail@test.fr").build();
 
         Trader trader = userAdapter.toFinancialPerson(user, Trader.class);
         assertThat(trader).isNotNull();

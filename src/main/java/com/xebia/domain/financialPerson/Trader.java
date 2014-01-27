@@ -5,7 +5,7 @@ public final class Trader extends FinancialPerson {
     protected Trader() {
     }
 
-    public Trader(String name, String email) {
+    public Trader(String name, EmailAddress email) {
         super(name, email);
     }
 }
