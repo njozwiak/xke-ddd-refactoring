@@ -28,8 +28,8 @@ public class ProductServiceTest {
 
     @Test
     public void should_be_true_when_contains_funding_currencies() {
-        Currency euro = new Currency(1L, "EURO", Currency.EUR_ISO);
-        Currency us = new Currency(2L, "US", Currency.USD_ISO);
+        Currency euro = new Currency("EURO", Currency.EUR_ISO);
+        Currency us = new Currency("US", Currency.USD_ISO);
 
         Boolean result = productService.containsFundingCurrencies(Lists.newArrayList(euro, us));
 
@@ -38,7 +38,7 @@ public class ProductServiceTest {
 
     @Test
     public void should_be_false_when_no_contains_funding_currencies() {
-        Currency gpb = new Currency(1L, "GPB", "GPB");
+        Currency gpb = new Currency("GPB", "GPB");
 
         Boolean result = productService.containsFundingCurrencies(Lists.newArrayList(gpb));
 

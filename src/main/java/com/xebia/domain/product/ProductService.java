@@ -59,10 +59,7 @@ public class ProductService {
         return Iterables.any(currencies, new Predicate<Currency>() {
             @Override
             public boolean apply(Currency currency) {
-                if (!"EUR".equalsIgnoreCase(currency.getIsoCode()) && !"USD".equalsIgnoreCase(currency.getIsoCode())) {
-                    return false;
-                }
-                return true;
+                return currency.isFundingCurrency();
             }
         });
     }
