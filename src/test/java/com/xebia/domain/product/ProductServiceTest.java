@@ -50,10 +50,10 @@ public class ProductServiceTest {
         // Given
         Product product = new Product();
 
-        product.addEcheance(new EcheanceRequest(new DateTime(2014, 5, 1, 0, 0).toDate(), new DateTime(2014, 5, 31, 0, 0).toDate(), new ProductDecimal(new BigDecimal("1500")), BigDecimal.ZERO, true));
-        product.addEcheance(new EcheanceRequest(new DateTime(2014, 6, 1, 0, 0).toDate(), new DateTime(2014, 6, 30, 0, 0).toDate(), new ProductDecimal(new BigDecimal("1000")), BigDecimal.ZERO, true));
-        product.addEcheance(new EcheanceRequest(new DateTime(2014, 7, 1, 0, 0).toDate(), new DateTime(2014, 7, 31, 0, 0).toDate(), new ProductDecimal(new BigDecimal("500")), BigDecimal.ZERO, true));
-        product.addEcheance(new EcheanceRequest(new DateTime(2014, 8, 1, 0, 0).toDate(), new DateTime(2014, 8, 31, 0, 0).toDate(), new ProductDecimal(new BigDecimal("0")), BigDecimal.ZERO, true));
+        product.addEcheance(new EcheanceRequest(new DateTime(2014, 5, 1, 0, 0).toDate(), new DateTime(2014, 5, 31, 0, 0).toDate(), new ProductDecimal(new BigDecimal("1500")), BigDecimal.ZERO));
+        product.addEcheance(new EcheanceRequest(new DateTime(2014, 6, 1, 0, 0).toDate(), new DateTime(2014, 6, 30, 0, 0).toDate(), new ProductDecimal(new BigDecimal("1000")), BigDecimal.ZERO));
+        product.addEcheance(new EcheanceRequest(new DateTime(2014, 7, 1, 0, 0).toDate(), new DateTime(2014, 7, 31, 0, 0).toDate(), new ProductDecimal(new BigDecimal("500")), BigDecimal.ZERO));
+        product.addEcheance(new EcheanceRequest(new DateTime(2014, 8, 1, 0, 0).toDate(), new DateTime(2014, 8, 31, 0, 0).toDate(), new ProductDecimal(new BigDecimal("0")), BigDecimal.ZERO));
 
         // When
         Integer result = productService.countRemainingEcheanceAfter(product, new DateTime(2014, 6, 2, 0, 0).toDate());

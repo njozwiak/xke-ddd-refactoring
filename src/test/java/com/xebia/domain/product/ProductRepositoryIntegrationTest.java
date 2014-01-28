@@ -2,7 +2,9 @@ package com.xebia.domain.product;
 
 import com.google.inject.Inject;
 import com.xebia.AbstractIntegrationTest;
+import com.xebia.domain.ProductDecimal;
 import com.xebia.domain.echeance.EcheanceRequest;
+import com.xebia.domain.echeance.EcheanceRequestBuilder;
 import com.xebia.domain.product.ProductRepository;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
@@ -25,12 +27,10 @@ public class ProductRepositoryIntegrationTest extends AbstractIntegrationTest {
     @Test
     public void should_save_product() {
         // Given
-        EcheanceRequest echeanceRequest = new EcheanceRequest();
-        echeanceRequest.setActive(true);
-        echeanceRequest.setBeginDate(new Date());
-        echeanceRequest.setEndDate(new Date());
-        echeanceRequest.setReoffer(BigDecimal.TEN);
-
+        EcheanceRequest echeanceRequest = new EcheanceRequestBuilder().beginDate(new Date())
+                                                                      .endDate(new Date())
+                                                                      .reoffer(BigDecimal.TEN)
+                                                                      .build();
         Product product = new Product();
         product.setName("Save product test");
         product.setMarketDate(new Date());

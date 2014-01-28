@@ -33,13 +33,7 @@ public abstract class AbstractIntegrationTest {
     }
 
     private Comission createComission(Date dateDebut, Date dateFin, BigDecimal montant) {
-        Comission comission = new Comission();
-
-        comission.setDateDebut(dateDebut);
-        comission.setDateFin(dateFin);
-        comission.setMontant(montant);
-
-        return comission;
+        return new Comission(dateDebut, dateFin, montant);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.xebia.domain.product;
 
 import com.xebia.domain.echeance.EcheanceRequest;
+import com.xebia.domain.echeance.EcheanceRequestBuilder;
 
 import org.junit.Test;
 
@@ -13,11 +14,8 @@ public class ProductTest {
     @Test
     public void should_get_active_echeances() {
         //GIVEN
-        EcheanceRequest echeanceRequest1 = new EcheanceRequest();
-        echeanceRequest1.setActive(true);
-
-        EcheanceRequest echeanceRequest2 = new EcheanceRequest();
-        echeanceRequest2.setActive(false);
+        EcheanceRequest echeanceRequest1 = new EcheanceRequestBuilder().build();
+        EcheanceRequest echeanceRequest2 = new EcheanceRequestBuilder().inactive().build();
 
         Product product = new Product();
         product.addEcheance(echeanceRequest1);

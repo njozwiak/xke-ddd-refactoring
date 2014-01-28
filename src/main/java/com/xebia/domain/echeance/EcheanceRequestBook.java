@@ -18,7 +18,7 @@ public class EcheanceRequestBook {
         return Lists.newArrayList(Iterables.filter(getEcheanceRequests(), new Predicate<EcheanceRequest>() {
             @Override
             public boolean apply(EcheanceRequest echeanceRequest) {
-                return echeanceRequest.getActive();
+                return echeanceRequest.active();
             }
         }));
     }
