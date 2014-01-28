@@ -13,27 +13,37 @@ public class Comission extends IdValueObject {
 
     private BigDecimal montant;
 
-    public Date getDateDebut() {
+    protected Comission() {
+      super();
+    }
+
+    public Comission(Date dateDebut, Date dateFin, BigDecimal montant) {
+      this.setDateDebut(dateDebut);
+      this.setDateFin(dateFin);
+      this.setMontant(montant);
+    }
+
+    public Date dateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(Date dateDebut) {
-        this.dateDebut = dateDebut;
-    }
-
-    public Date getDateFin() {
+    public Date dateFin() {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
-        this.dateFin = dateFin;
-    }
-
-    public BigDecimal getMontant() {
+    public BigDecimal montant() {
         return montant;
     }
 
-    public void setMontant(BigDecimal montant) {
+    protected void setDateDebut(Date dateDebut) {
+      this.dateDebut = dateDebut;
+    }
+
+    protected void setDateFin(Date dateFin) {
+      this.dateFin = dateFin;
+    }
+
+    protected void setMontant(BigDecimal montant) {
         this.montant = montant;
     }
 }
