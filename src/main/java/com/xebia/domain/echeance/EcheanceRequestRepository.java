@@ -1,4 +1,4 @@
 package com.xebia.domain.echeance;
 
-public class EcheanceRequestRepository {
+public interface EcheanceRequestRepository {
 }
