@@ -11,9 +11,7 @@ public class EcheanceRequest {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Date beginDate;
-
-    private Date endDate;
+    private Date paymentDate;
 
     @ManyToOne
     @JoinColumn(name = "Id")
@@ -36,20 +34,12 @@ public class EcheanceRequest {
         this.id = id;
     }
 
-    public Date getBeginDate() {
-        return beginDate;
+    public Date getPaymentDate() {
+        return paymentDate;
     }
 
-    public void setBeginDate(Date beginDate) {
-        this.beginDate = beginDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setPaymentDate(Date paymentDate) {
+        this.paymentDate = paymentDate;
     }
 
     public Product getProduct() {

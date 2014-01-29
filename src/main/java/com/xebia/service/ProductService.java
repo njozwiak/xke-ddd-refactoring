@@ -33,8 +33,7 @@ public class ProductService {
             BigDecimal fixingPourDate = dataService.getFixingPourDate(dateValorisation);
 
             EcheanceRequest echeanceRequestValorise = new EcheanceRequest();
-            echeanceRequestValorise.setBeginDate(echeanceRequest.getBeginDate());
-            echeanceRequestValorise.setEndDate(echeanceRequest.getEndDate());
+            echeanceRequestValorise.setPaymentDate(echeanceRequest.getPaymentDate());
 
             BigDecimal crdValorise = echeanceRequest.getCrd().multiply(fixingPourDate);
 
