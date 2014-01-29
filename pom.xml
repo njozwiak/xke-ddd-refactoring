@@ -15,6 +15,8 @@
         <guice.inject.version>3.0</guice.inject.version>
         <guice.persist.version>3.0</guice.persist.version>
         <slf4j.version>1.7.2</slf4j.version>
+        <joda-time.version>2.1</joda-time.version>
+        <fest-assert.version>2.0M10</fest-assert.version>
     </properties>
 
     <dependencies>
@@ -53,6 +55,11 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -60,10 +67,11 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.easytesting</groupId>
-            <artifactId>fest-assert</artifactId>
-            <version>1.4</version>
+            <artifactId>fest-assert-core</artifactId>
+            <version>${fest-assert.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

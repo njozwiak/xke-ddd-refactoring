@@ -1,20 +1,26 @@
 package com.xebia.service;
 
 import com.google.common.collect.Lists;
-
 import com.xebia.domain.Currency;
 import com.xebia.domain.EcheanceRequest;
 import com.xebia.domain.Product;
 import com.xebia.repository.ProductRepository;
-
+import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.fest.assertions.Assertions.assertThat;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
+import static org.fest.assertions.api.Assertions.assertThat;
+import static org.fest.assertions.api.Assertions.extractProperty;
 import static org.mockito.Mockito.when;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProductServiceTest {
@@ -74,20 +80,21 @@ public class ProductServiceTest {
     @Test
     public void should_not_valorise_echeance_with_null_crd() {
         // Given
+        EcheanceRequest echeanceRequest = new EcheanceRequest();
+        echeanceRequest.setActive(true);
+        echeanceRequest.setPaymentDate(new DateTime(2014, 2, 28, 0, 0).toDate());
+
+        Product product = new Product();
+        product.getEcheanceRequests().add(echeanceRequest);
 
         // When
+        when(dataService.getCrossChange(Matchers.<Date>any())).thenReturn(BigDecimal.TEN);
+
+        List<EcheanceRequest> valoriseEcheanceRequests = productService.valoriseProduct(product, new DateTime(2014, 2, 3, 0, 0).toDate());
 
         // Then
-    }
-
-    // TODO: on a empeché le 1er NPE, maintenant il faut gérer le seconde à l'appel de la méthode convertirDevise
-    @Test
-    public void should_not_convert_devise_when_echeance_crd_is_null() {
-        // Given
-
-        // When
-
-        // Then
+        assertThat(valoriseEcheanceRequests).hasSize(1);
+        assertThat(extractProperty("crd").from(valoriseEcheanceRequests)).containsNull();
     }
 
 }

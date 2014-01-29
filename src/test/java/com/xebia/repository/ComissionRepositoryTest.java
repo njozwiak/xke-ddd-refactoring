@@ -5,7 +5,7 @@ import com.xebia.AbstractIntegrationTest;
 import com.xebia.domain.Comission;
 import org.junit.Test;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 public class ComissionRepositoryTest extends AbstractIntegrationTest {
 

@@ -26,13 +26,13 @@ public class Product {
     private Date placeDate;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    private List<EcheanceRequest> echeanceRequests;
+    private List<EcheanceRequest> echeanceRequests = Lists.newArrayList();
 
     @OneToMany
-    private List<Currency> currencies;
+    private List<Currency> currencies = Lists.newArrayList();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    private List<Comission> comissions;
+    private List<Comission> comissions = Lists.newArrayList();
 
     public Long getId() {
         return id;

@@ -6,7 +6,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.fest.assertions.api.Assertions.assertThat;
+import static org.fest.assertions.api.Assertions.extractProperty;
 
 public class ProductTest {
 
@@ -34,7 +35,7 @@ public class ProductTest {
 
         //THEN
         assertThat(echeanceRequestActive).hasSize(1);
-        assertThat(echeanceRequestActive).onProperty("id").containsOnly(1L);
-
+        assertThat(extractProperty("id").from(echeanceRequestActive)).containsOnly(1L);
     }
+
 }

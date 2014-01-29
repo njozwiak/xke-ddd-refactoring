@@ -5,7 +5,6 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
-
 import com.xebia.domain.Currency;
 import com.xebia.domain.EcheanceRequest;
 import com.xebia.domain.Product;
@@ -29,7 +28,6 @@ public class ProductService {
     }
 
     public List<EcheanceRequest> valoriseProduct(Product product, Date dateValorisation) {
-
         List<EcheanceRequest> echeanceRequestActive = product.getEcheanceRequestActive();
         List<EcheanceRequest> echeanceRequestValorises = Lists.newArrayList();
 
@@ -37,14 +35,17 @@ public class ProductService {
             BigDecimal fixingPourDate = dataService.getFixingPourDate(dateValorisation);
 
             EcheanceRequest echeanceRequestValorise = new EcheanceRequest();
-            echeanceRequestValorise.setPaymentDate(echeanceRequest.getPaymentDate());
 
-            BigDecimal crdValorise = echeanceRequest.getCrd().multiply(fixingPourDate);
-
-            if (containsFundingCurrencies(product.getCurrencies())) {
-                crdValorise = convertirEnDevise(crdValorise, dateValorisation);
+            BigDecimal crdValorise = null;
+            if (echeanceRequest.getCrd() != null) {
+                crdValorise = echeanceRequest.getCrd().multiply(fixingPourDate);
             }
 
+            if (containsFundingCurrencies(product.getCurrencies())) {
+                crdValorise = applyCrossChange(crdValorise, dateValorisation);
+            }
+
+            echeanceRequestValorise.setPaymentDate(echeanceRequest.getPaymentDate());
             echeanceRequestValorise.setCrd(crdValorise);
             echeanceRequestValorise.setReoffer(echeanceRequest.getReoffer());
 
@@ -59,10 +60,14 @@ public class ProductService {
         product.getEcheanceRequests().add(echeance);
     }
 
-    public BigDecimal convertirEnDevise(BigDecimal value, Date date) {
-        BigDecimal crossChange = dataService.getCrossChange(date);
+    public BigDecimal applyCrossChange(BigDecimal value, Date date) {
+        if (value != null) {
+            BigDecimal crossChange = dataService.getCrossChange(date);
 
-        return value.divide(crossChange);
+            return value.divide(crossChange);
+        }
+
+        return value;
     }
 
     Boolean containsFundingCurrencies(List<Currency> currencies) {
@@ -76,4 +81,5 @@ public class ProductService {
             }
         });
     }
+
 }

@@ -3,7 +3,7 @@ package com.xebia.service;
 import com.xebia.domain.User;
 import org.junit.Test;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 public class UserServiceTest {
 
