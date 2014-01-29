@@ -41,7 +41,7 @@ public class ProductApplicationService {
             ProductDecimal crdValorise = echeanceRequest.crd().multiply(fixingPourDate);
 
             if (containsFundingCurrencies(product.getCurrencyBook().getCurrencies())) {
-                crdValorise = convertirEnDevise(crdValorise, dateValorisation);
+                crdValorise = applyCrossChange(crdValorise, dateValorisation);
             }
 
             EcheanceRequest echeanceRequestValorise = new EcheanceRequestBuilder().withPaymentDate(echeanceRequest.paymentDate())
@@ -60,7 +60,7 @@ public class ProductApplicationService {
         product.addEcheance(echeanceRequest);
     }
 
-    ProductDecimal convertirEnDevise(ProductDecimal value, Date date) {
+    ProductDecimal applyCrossChange(ProductDecimal value, Date date) {
         ProductDecimal crossChange = dataService.getCrossChange(date);
         return value.divide(crossChange);
     }
