@@ -4,6 +4,8 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
+import com.google.inject.persist.Transactional;
+
 import com.xebia.domain.Currency;
 import com.xebia.domain.EcheanceRequest;
 import com.xebia.domain.Product;
@@ -12,6 +14,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+@Transactional
 public class ProductService {
 
     public DataService dataService;
