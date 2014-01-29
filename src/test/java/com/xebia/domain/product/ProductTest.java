@@ -15,7 +15,7 @@ public class ProductTest {
     public void should_get_active_echeances() {
         //GIVEN
         EcheanceRequest echeanceRequest1 = new EcheanceRequestBuilder().build();
-        EcheanceRequest echeanceRequest2 = new EcheanceRequestBuilder().inactive().build();
+        EcheanceRequest echeanceRequest2 = new EcheanceRequestBuilder().isInactive().build();
 
         Product product = new Product();
         product.addEcheance(echeanceRequest1);

@@ -18,22 +18,22 @@ public class EcheanceRequestBuilder {
         return echeanceRequest;
     }
 
-    public EcheanceRequestBuilder paymentDate(Date paymentDate) {
+    public EcheanceRequestBuilder withPaymentDate(Date paymentDate) {
         echeanceRequest.setPaymentDate(paymentDate);
         return this;
     }
 
-    public EcheanceRequestBuilder crd(ProductDecimal crd) {
+    public EcheanceRequestBuilder withCrd(ProductDecimal crd) {
         echeanceRequest.setCrd(crd);
         return this;
     }
 
-    public EcheanceRequestBuilder reoffer(BigDecimal reoffer) {
+    public EcheanceRequestBuilder withReoffer(BigDecimal reoffer) {
         echeanceRequest.setReoffer(reoffer);
         return this;
     }
 
-    public EcheanceRequestBuilder inactive() {
+    public EcheanceRequestBuilder isInactive() {
         echeanceRequest.setActive(false);
         return this;
     }

@@ -27,8 +27,8 @@ public class HibernateProductRepositoryTest extends AbstractIntegrationTest {
     @Test
     public void should_save_product() {
         // Given
-        EcheanceRequest echeanceRequest = new EcheanceRequestBuilder().paymentDate(new Date())
-                .reoffer(BigDecimal.TEN)
+        EcheanceRequest echeanceRequest = new EcheanceRequestBuilder().withPaymentDate(new Date())
+                .withReoffer(BigDecimal.TEN)
                 .build();
         Product product = new ProductBuilder().withName("Save product test").withMarketDate(new Date()).build();
         product.addEcheance(echeanceRequest);

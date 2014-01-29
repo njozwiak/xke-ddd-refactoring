@@ -44,9 +44,9 @@ public class ProductApplicationService {
                 crdValorise = convertirEnDevise(crdValorise, dateValorisation);
             }
 
-            EcheanceRequest echeanceRequestValorise = new EcheanceRequestBuilder().paymentDate(echeanceRequest.paymentDate())
-                    .crd(crdValorise)
-                    .reoffer(echeanceRequest.reoffer())
+            EcheanceRequest echeanceRequestValorise = new EcheanceRequestBuilder().withPaymentDate(echeanceRequest.paymentDate())
+                    .withCrd(crdValorise)
+                    .withReoffer(echeanceRequest.reoffer())
                     .build();
             echeanceRequestValorises.add(echeanceRequestValorise);
         }
