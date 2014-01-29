@@ -38,4 +38,25 @@ public class ProductServiceTest {
 
         assertThat(result).isFalse();
     }
+
+    // TODO: gestion du NPE sur la multiplication du crd
+    @Test
+    public void should_not_valorise_echeance_with_null_crd() {
+        // Given
+
+        // When
+
+        // Then
+    }
+
+    // TODO: on a empeché le 1er NPE, maintenant il faut gérer le seconde à l'appel de la méthode convertirDevise
+    @Test
+    public void should_not_convert_devise_when_echeance_crd_is_null() {
+        // Given
+
+        // When
+
+        // Then
+    }
+
 }

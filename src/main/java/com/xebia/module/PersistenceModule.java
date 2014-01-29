@@ -32,4 +32,5 @@ public class PersistenceModule extends AbstractModule {
     public EntityManager getEntityManager() {
         return entityManagerFactory.createEntityManager();
     }
+
 }
