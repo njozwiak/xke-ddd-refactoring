@@ -1,9 +1,14 @@
-package com.xebia.domain.product;
+package com.xebia.application;
 
 import com.google.common.collect.Lists;
+
+import com.xebia.application.ProductApplicationService;
 import com.xebia.domain.ProductDecimal;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.echeance.EcheanceRequest;
+import com.xebia.domain.product.Product;
+import com.xebia.domain.product.ProductBuilder;
+import com.xebia.domain.product.ProductRepository;
 import com.xebia.port.adapter.service.ProductDataService;
 import org.joda.time.DateTime;
 import org.junit.Before;
@@ -14,16 +19,19 @@ import java.math.BigDecimal;
 
 import static org.fest.assertions.Assertions.assertThat;
 
-public class ProductServiceTest {
+public class ProductApplicationServiceTest {
 
-    private ProductService productService;
+    private ProductApplicationService productService;
 
     @Mock
     private ProductDataService dataService;
 
+    @Mock
+    private ProductRepository productRepository;
+
     @Before
     public void init() throws Exception {
-        productService = new ProductService(dataService);
+        productService = new ProductApplicationService(dataService, productRepository);
     }
 
     @Test
@@ -48,7 +56,7 @@ public class ProductServiceTest {
     @Test
     public void should_return_remaining_echeance_after_date() {
         // Given
-        Product product = new Product();
+        Product product = new ProductBuilder().build();
 
         product.addEcheance(new EcheanceRequest(new DateTime(2014, 5, 1, 0, 0).toDate(), new DateTime(2014, 5, 31, 0, 0).toDate(), new ProductDecimal(new BigDecimal("1500")), BigDecimal.ZERO));
         product.addEcheance(new EcheanceRequest(new DateTime(2014, 6, 1, 0, 0).toDate(), new DateTime(2014, 6, 30, 0, 0).toDate(), new ProductDecimal(new BigDecimal("1000")), BigDecimal.ZERO));

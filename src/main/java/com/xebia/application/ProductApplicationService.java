@@ -1,26 +1,34 @@
-package com.xebia.domain.product;
+package com.xebia.application;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
+import com.google.inject.persist.Transactional;
+
 import com.xebia.domain.ProductDecimal;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.echeance.EcheanceRequest;
 import com.xebia.domain.echeance.EcheanceRequestBuilder;
+import com.xebia.domain.product.Product;
+import com.xebia.domain.product.ProductRepository;
 import com.xebia.port.adapter.service.ProductDataService;
 
 import javax.annotation.Nullable;
 import java.util.Date;
 import java.util.List;
 
-public class ProductService {
+@Transactional
+public class ProductApplicationService {
 
     private ProductDataService dataService;
 
+    private ProductRepository productRepository;
+
     @Inject
-    public ProductService(ProductDataService dataService) {
+    public ProductApplicationService(ProductDataService dataService, ProductRepository productRepository) {
         this.dataService = dataService;
+        this.productRepository = productRepository;
     }
 
     public List<EcheanceRequest> valoriseProduct(Product product, Date dateValorisation) {
@@ -46,6 +54,12 @@ public class ProductService {
         }
 
         return echeanceRequestValorises;
+    }
+
+    public void addEcheanceToProduct(Long idProduct, EcheanceRequest echeanceRequest) {
+      Product product = productRepository.findOne(idProduct);
+
+      product.addEcheance(echeanceRequest);
     }
 
     ProductDecimal convertirEnDevise(ProductDecimal value, Date date) {

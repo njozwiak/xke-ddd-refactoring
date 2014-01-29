@@ -1,5 +1,7 @@
 package com.xebia.domain.product;
 
+import java.util.Date;
+
 public class ProductBuilder {
 
     private Product product;
@@ -15,5 +17,10 @@ public class ProductBuilder {
     public ProductBuilder withName(String name) {
         product.setName(name);
         return this;
+    }
+
+    public ProductBuilder withMarketDate(Date marketDate) {
+      product.setMarketDate(marketDate);
+      return this;
     }
 }
