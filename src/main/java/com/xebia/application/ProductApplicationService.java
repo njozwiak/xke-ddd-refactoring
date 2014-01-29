@@ -5,7 +5,6 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
-
 import com.xebia.domain.ProductDecimal;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.echeance.EcheanceRequest;
@@ -42,14 +41,13 @@ public class ProductApplicationService {
             ProductDecimal crdValorise = echeanceRequest.crd().multiply(fixingPourDate);
 
             if (containsFundingCurrencies(product.getCurrencyBook().getCurrencies())) {
-              crdValorise = convertirEnDevise(crdValorise, dateValorisation);
+                crdValorise = convertirEnDevise(crdValorise, dateValorisation);
             }
 
-            EcheanceRequest echeanceRequestValorise = new EcheanceRequestBuilder().beginDate(echeanceRequest.beginDate())
-                                                                                  .endDate(echeanceRequest.endDate())
-                                                                                  .crd(crdValorise)
-                                                                                  .reoffer(echeanceRequest.reoffer())
-                                                                                  .build();
+            EcheanceRequest echeanceRequestValorise = new EcheanceRequestBuilder().paymentDate(echeanceRequest.paymentDate())
+                    .crd(crdValorise)
+                    .reoffer(echeanceRequest.reoffer())
+                    .build();
             echeanceRequestValorises.add(echeanceRequestValorise);
         }
 
@@ -57,9 +55,9 @@ public class ProductApplicationService {
     }
 
     public void addEcheanceToProduct(Long idProduct, EcheanceRequest echeanceRequest) {
-      Product product = productRepository.findOne(idProduct);
+        Product product = productRepository.findOne(idProduct);
 
-      product.addEcheance(echeanceRequest);
+        product.addEcheance(echeanceRequest);
     }
 
     ProductDecimal convertirEnDevise(ProductDecimal value, Date date) {
@@ -80,7 +78,7 @@ public class ProductApplicationService {
         return Lists.newArrayList(Iterables.filter(product.getEcheanceRequestActive(), new Predicate<EcheanceRequest>() {
             @Override
             public boolean apply(@Nullable EcheanceRequest echeanceRequest) {
-                return echeanceRequest.beginDate().after(date);
+                return echeanceRequest.paymentDate().after(date);
             }
         })).size();
     }

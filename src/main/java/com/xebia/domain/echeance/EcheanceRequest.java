@@ -9,9 +9,7 @@ import java.util.Date;
 
 public class EcheanceRequest extends IdValueObject {
 
-    private Date beginDate;
-
-    private Date endDate;
+    private Date paymentDate;
 
     private ProductDecimal crd;
 
@@ -20,22 +18,13 @@ public class EcheanceRequest extends IdValueObject {
     private boolean active = true;
 
     protected EcheanceRequest() {
-      super();
+        super();
     }
 
-    public EcheanceRequest(Date beginDate, Date endDate, ProductDecimal crd, BigDecimal reoffer) {
-        this.setBeginDate(beginDate);
-        this.setEndDate(endDate);
+    public EcheanceRequest(Date paymentDate, ProductDecimal crd, BigDecimal reoffer) {
+        this.paymentDate = paymentDate;
         this.setCrd(crd);
         this.setReoffer(reoffer);
-    }
-
-    public Date beginDate() {
-        return beginDate;
-    }
-
-    public Date endDate() {
-        return endDate;
     }
 
     public ProductDecimal crd() {
@@ -50,20 +39,20 @@ public class EcheanceRequest extends IdValueObject {
         return active;
     }
 
-    protected void setBeginDate(Date beginDate) {
-      this.beginDate = beginDate;
+    public Date paymentDate() {
+        return paymentDate;
     }
 
-    protected void setEndDate(Date endDate) {
-      this.endDate = endDate;
+    protected void setPaymentDate(Date paymentDate) {
+        this.paymentDate = paymentDate;
     }
 
     protected void setCrd(ProductDecimal crd) {
-      this.crd = crd;
+        this.crd = crd;
     }
 
     protected void setReoffer(BigDecimal reoffer) {
-      this.reoffer = reoffer;
+        this.reoffer = reoffer;
     }
 
     protected void setActive(boolean active) {
@@ -71,7 +60,7 @@ public class EcheanceRequest extends IdValueObject {
     }
 
     public void disable() {
-      this.setActive(false);
+        this.setActive(false);
     }
 
 }

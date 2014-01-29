@@ -6,8 +6,7 @@
         <id name="id" type="long" unsaved-value="-1">
             <generator class="native"/>
         </id>
-        <property name="beginDate" type="java.util.Date" />
-        <property name="endDate" type="java.util.Date" />
+        <property name="paymentDate" type="java.util.Date" />
         <property name="crd" type="productDecimal" />
         <property name="reoffer" type="java.math.BigDecimal" />
         <property name="active" type="java.lang.Boolean" />
