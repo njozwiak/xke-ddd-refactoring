@@ -27,9 +27,4 @@ public class UserService {
 
         return user;
     }
-
-    public void changePasswordForUser(Long userId, String password) {
-        User user = getUserById(userId);
-        user.changePassword(password);
-    }
 }
