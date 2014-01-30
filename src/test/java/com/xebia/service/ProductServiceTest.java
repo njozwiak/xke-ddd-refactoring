@@ -2,22 +2,36 @@ package com.xebia.service;
 
 import com.google.common.collect.Lists;
 import com.xebia.domain.Currency;
+import com.xebia.domain.EcheanceRequest;
+import com.xebia.domain.Product;
+import com.xebia.repository.ProductRepository;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import static org.fest.assertions.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.initMocks;
+
 
 public class ProductServiceTest {
 
+    @InjectMocks
     private ProductService productService;
 
     @Mock
     private DataService dataService;
 
+    @Mock
+    private ProductRepository productRepository;
+
     @Before
     public void init() throws Exception {
-        productService = new ProductService(dataService);
+        productService = new ProductService(dataService, productRepository);
+        initMocks(this);
     }
 
     @Test
@@ -37,6 +51,25 @@ public class ProductServiceTest {
         Boolean result = productService.containsFundingCurrencies(Lists.newArrayList(gpb));
 
         assertThat(result).isFalse();
+    }
+
+    @Test
+    public void should_add_echeance_to_product() {
+        // Given
+        Product product = new Product();
+        product.setEcheanceRequests(Lists.<EcheanceRequest>newArrayList());
+
+        EcheanceRequest echeance = new EcheanceRequest();
+        echeance.setActive(true);
+
+        long productId = 1L;
+        when(productRepository.findOne(productId)).thenReturn(product);
+
+        // When
+        productService.addEcheanceToProduct(productId, echeance);
+        // Then
+
+        assertThat(product.getEcheanceRequestActive()).hasSize(1).contains(echeance);
     }
 
     // TODO: gestion du NPE sur la multiplication du crd

@@ -9,6 +9,7 @@ import com.google.inject.persist.Transactional;
 import com.xebia.domain.Currency;
 import com.xebia.domain.EcheanceRequest;
 import com.xebia.domain.Product;
+import com.xebia.repository.ProductRepository;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -19,9 +20,12 @@ public class ProductService {
 
     public DataService dataService;
 
+    public ProductRepository productRepository;
+
     @Inject
-    public ProductService(DataService dataService) {
+    public ProductService(DataService dataService, ProductRepository productRepository) {
         this.dataService = dataService;
+        this.productRepository = productRepository;
     }
 
     public List<EcheanceRequest> valoriseProduct(Product product, Date dateValorisation) {
@@ -48,6 +52,11 @@ public class ProductService {
         }
 
         return echeanceRequestValorises;
+    }
+
+    public void addEcheanceToProduct(Long productId, EcheanceRequest echeance) {
+        Product product = productRepository.findOne(productId);
+        product.getEcheanceRequests().add(echeance);
     }
 
     public BigDecimal convertirEnDevise(BigDecimal value, Date date) {
