@@ -1,6 +1,7 @@
 package com.xebia.service;
 
 import com.google.common.collect.Lists;
+
 import com.xebia.domain.Currency;
 import com.xebia.domain.EcheanceRequest;
 import com.xebia.domain.Product;
@@ -8,18 +9,16 @@ import com.xebia.repository.ProductRepository;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 
-
+@RunWith(MockitoJUnitRunner.class)
 public class ProductServiceTest {
 
-    @InjectMocks
     private ProductService productService;
 
     @Mock
@@ -31,7 +30,6 @@ public class ProductServiceTest {
     @Before
     public void init() throws Exception {
         productService = new ProductService(dataService, productRepository);
-        initMocks(this);
     }
 
     @Test
