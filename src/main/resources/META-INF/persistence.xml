@@ -4,10 +4,13 @@
              version="2.0">
 
     <persistence-unit name="dddDB">
-        <class>com.xebia.domain.Comission</class>
-        <class>com.xebia.domain.Currency</class>
-        <class>com.xebia.domain.EcheanceRequest</class>
-        <class>com.xebia.domain.Product</class>
+        <mapping-file>META-INF/CustomTypes.hbm.xml</mapping-file>
+        <mapping-file>META-INF/Comission.hbm.xml</mapping-file>
+        <mapping-file>META-INF/Currency.hbm.xml</mapping-file>
+        <mapping-file>META-INF/Product.hbm.xml</mapping-file>
+        <mapping-file>META-INF/EcheanceRequest.hbm.xml</mapping-file>
+        <mapping-file>META-INF/Role.hbm.xml</mapping-file>
+        <mapping-file>META-INF/User.hbm.xml</mapping-file>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
@@ -16,8 +19,8 @@
             <property name="javax.persistence.jdbc.password" value="" />
 
             <property name="hibernate.show_sql" value="false" />
-            <property name="hibernate.hbm2ddl.auto" value="create" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
         </properties>
 
     </persistence-unit>

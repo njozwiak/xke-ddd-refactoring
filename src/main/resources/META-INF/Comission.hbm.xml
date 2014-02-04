@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field">
+    <class name="com.xebia.domain.comission.Comission">
+        <id name="id" type="long" unsaved-value="-1">
+            <generator class="native"/>
+        </id>
+        <property name="dateDebut" type="java.util.Date"/>
+        <property name="dateFin" type="java.util.Date"/>
+
+        <property name="montant" type="montant">
+            <column name="value"/>
+            <column name="name"/>
+            <column name="isoCode"/>
+        </property>
+    </class>
+</hibernate-mapping>
