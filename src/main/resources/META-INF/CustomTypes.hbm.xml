@@ -5,4 +5,6 @@
 
 <hibernate-mapping>
     <typedef class="com.xebia.domain.ProductDecimalType" name="productDecimal" />
+
+    <typedef class="com.xebia.domain.MontantType" name="montant"/>
 </hibernate-mapping>

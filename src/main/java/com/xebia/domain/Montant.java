@@ -9,6 +9,9 @@ public class Montant {
 
     private Currency currency;
 
+    public Montant() {
+    }
+
     public Montant(ProductDecimal value, Currency currency) {
         this.value = value;
         this.currency = currency;

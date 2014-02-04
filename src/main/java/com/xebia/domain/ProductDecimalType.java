@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProductDecimalType implements UserType {
+    public static final ProductDecimalType INSTANCE = new ProductDecimalType();
 
     @Override
     public int[] sqlTypes() {
