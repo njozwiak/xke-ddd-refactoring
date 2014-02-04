@@ -102,9 +102,11 @@ La devise de référence est EUR.
         <li> Distinguer les Entity et Value Object</li>
         <li> Faire ressortir le produit en tant qu’aggrégat
             <ul>
+                <li> Ajout d'un identifiant unique => ProductId </li>
                 <li> Supprimer les relations bi directionnnelles </li>
             </ul>
         </li>
+        <li> Ajouter la notion de FinancialPerson (les utilisateurs de notre domaine) </li>
         <li> Rendre les entités moins anémiques
             <ul>
                 <li> Déplacer des méthodes dans les entités </li>
@@ -116,7 +118,7 @@ La devise de référence est EUR.
                 <li> Des builders pour la construction plus lisible </li>
                 <li> Utilisez le ProductDecimal pour le crd (EcheanceRequest) </li>
                 <li> Utilisez le Montant pour le montant de la Commission </li>
-                <li> Rendre des concepts implicites, explicites (String email => EmailAddress object) </li>
+                <li> Rendre des concepts implicites, explicites (String email => EmailAddress object) et des règles de validations </li>
             </ul>
         </li>
         <li> Découpler l’application des autres applications
