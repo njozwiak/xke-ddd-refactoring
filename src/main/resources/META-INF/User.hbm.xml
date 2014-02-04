@@ -10,8 +10,8 @@
         <property name="lastname" type="java.lang.String" />
         <property name="password" type="java.lang.String" />
         <property name="address" type="java.lang.String" />
-        <property name="email" type="java.util.Date" />
-        <property name="phoneNumber" type="java.util.Date" />
+        <property name="email" type="java.lang.String" />
+        <property name="phoneNumber" type="java.lang.String" />
 
         <bag name="products" lazy="true" fetch="select">
             <key column="PRODUCT_ID"/>
