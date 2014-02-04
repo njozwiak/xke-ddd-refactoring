@@ -5,9 +5,10 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
-import com.xebia.domain.currency.Currency;
 import com.xebia.domain.EcheanceRequest;
 import com.xebia.domain.Product;
+import com.xebia.domain.currency.Currency;
+import com.xebia.port.adapter.service.DataService;
 import com.xebia.repository.ProductRepository;
 
 import java.math.BigDecimal;
@@ -38,7 +39,7 @@ public class ProductService {
 
             BigDecimal crdValorise = null;
             if (echeanceRequest.getCrd() != null) {
-                crdValorise = echeanceRequest.getCrd().multiply(fixingPourDate);
+                crdValorise = echeanceRequest.crd().multiply(fixingPourDate);
             }
 
             if (containsFundingCurrencies(product.getCurrencies())) {

@@ -1,4 +1,4 @@
-package com.xebia.port.port.adapter.persistence;
+package com.xebia.port.adapter.persistence;
 
 import com.google.common.base.Objects;
 import com.xebia.domain.comission.Montant;
@@ -70,8 +70,7 @@ public class MontantType implements UserType {
         if (value == null) {
             preparedStatement.setNull(index, BigDecimalType.INSTANCE.sqlType());
             preparedStatement.setNull(index + 1, LongType.INSTANCE.sqlType());
-        }
-        else {
+        } else {
             Montant montant = (Montant) value;
 
             ProductDecimalType.INSTANCE.nullSafeSet(preparedStatement, montant.getValue(), index, session);

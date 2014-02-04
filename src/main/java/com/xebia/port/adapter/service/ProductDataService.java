@@ -1,4 +1,4 @@
-package com.xebia.port.port.adapter.service;
+package com.xebia.port.adapter.service;
 
 // Couche anti corruption de DataService
 public class ProductDataService {

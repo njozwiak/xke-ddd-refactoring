@@ -1,9 +1,10 @@
 package com.xebia.service;
 
 import com.google.common.collect.Lists;
-import com.xebia.domain.currency.Currency;
 import com.xebia.domain.EcheanceRequest;
 import com.xebia.domain.Product;
+import com.xebia.domain.currency.Currency;
+import com.xebia.port.adapter.service.DataService;
 import com.xebia.repository.ProductRepository;
 import org.joda.time.DateTime;
 import org.junit.Before;

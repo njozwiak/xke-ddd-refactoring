@@ -1,4 +1,4 @@
-package com.xebia.port.port.adapter.persistence;
+package com.xebia.port.adapter.persistence;
 
 import com.google.common.base.Objects;
 import com.xebia.domain.echeance.ProductDecimal;
