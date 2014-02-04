@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-// TODO move to another package
+// TODO 2.1 move to another package
 
 @Transactional
 public class ProductService {

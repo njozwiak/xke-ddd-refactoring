@@ -77,7 +77,6 @@ public class ProductServiceTest {
         assertThat(product.getEcheanceRequestActive()).hasSize(1).contains(echeance);
     }
 
-    // TODO: gestion du NPE sur la multiplication du crd
     @Test
     public void should_not_valorise_echeance_with_null_crd() {
         // Given

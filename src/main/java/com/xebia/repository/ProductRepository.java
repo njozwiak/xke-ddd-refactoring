@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Provider;
 import javax.persistence.EntityManager;
 
-// TODO move to another package and create interface
+// TODO 1.1 move to another package and create interface
 
 public class ProductRepository {
 
