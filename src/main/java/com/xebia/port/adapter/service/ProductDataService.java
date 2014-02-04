@@ -4,7 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
-import com.xebia.domain.ProductDecimal;
+import com.xebia.domain.echeance.ProductDecimal;
 
 import java.math.BigDecimal;
 import java.util.Date;

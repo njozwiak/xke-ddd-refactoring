@@ -2,7 +2,7 @@ package com.xebia.infrastructure.persistence;
 
 import com.google.inject.Inject;
 import com.xebia.AbstractIntegrationTest;
-import com.xebia.domain.ProductDecimal;
+import com.xebia.domain.echeance.ProductDecimal;
 import com.xebia.domain.comission.Comission;
 import com.xebia.domain.comission.ComissionRepository;
 import org.junit.Test;

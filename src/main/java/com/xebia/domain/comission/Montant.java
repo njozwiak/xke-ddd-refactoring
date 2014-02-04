@@ -1,5 +1,6 @@
-package com.xebia.domain;
+package com.xebia.domain.comission;
 
+import com.xebia.domain.echeance.ProductDecimal;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.exception.MontantException;
 

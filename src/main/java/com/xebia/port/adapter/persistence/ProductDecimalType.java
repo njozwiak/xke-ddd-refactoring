@@ -1,6 +1,7 @@
-package com.xebia.domain;
+package com.xebia.port.adapter.persistence;
 
 import com.google.common.base.Objects;
+import com.xebia.domain.echeance.ProductDecimal;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.type.BigDecimalType;

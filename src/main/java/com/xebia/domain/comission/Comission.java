@@ -1,6 +1,5 @@
 package com.xebia.domain.comission;
 
-import com.xebia.domain.Montant;
 import com.xebia.domain.model.IdValueObject;
 
 import java.util.Date;

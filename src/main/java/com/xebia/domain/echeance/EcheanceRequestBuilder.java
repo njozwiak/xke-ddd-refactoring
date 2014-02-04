@@ -1,7 +1,5 @@
 package com.xebia.domain.echeance;
 
-import com.xebia.domain.ProductDecimal;
-
 import java.math.BigDecimal;
 import java.util.Date;
 

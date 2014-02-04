@@ -1,7 +1,8 @@
-package com.xebia.domain;
+package com.xebia.port.adapter.persistence;
 
 import com.google.common.base.Objects;
-import com.google.common.collect.ObjectArrays;
+import com.xebia.domain.comission.Montant;
+import com.xebia.domain.echeance.ProductDecimal;
 import com.xebia.domain.currency.Currency;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;

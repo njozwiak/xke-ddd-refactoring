@@ -1,7 +1,6 @@
 package com.xebia.domain.echeance;
 
 
-import com.xebia.domain.ProductDecimal;
 import com.xebia.domain.model.IdValueObject;
 
 import java.math.BigDecimal;

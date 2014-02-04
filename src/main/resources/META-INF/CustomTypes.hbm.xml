@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <typedef class="com.xebia.domain.ProductDecimalType" name="productDecimal" />
+    <typedef class="com.xebia.port.adapter.persistence.ProductDecimalType" name="productDecimal" />
 
-    <typedef class="com.xebia.domain.MontantType" name="montant"/>
+    <typedef class="com.xebia.port.adapter.persistence.MontantType" name="montant"/>
 </hibernate-mapping>
