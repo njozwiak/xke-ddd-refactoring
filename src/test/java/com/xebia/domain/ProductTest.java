@@ -1,41 +1,29 @@
 package com.xebia.domain;
 
-import com.google.common.collect.Lists;
+import com.xebia.domain.echeance.EcheanceRequestBuilder;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.fest.assertions.api.Assertions.assertThat;
-import static org.fest.assertions.api.Assertions.extractProperty;
+import static org.fest.assertions.Assertions.assertThat;
 
 public class ProductTest {
 
     @Test
     public void should_get_active_echeances() {
         //GIVEN
-        ArrayList<EcheanceRequest> echeances = Lists.newArrayList();
-
-        EcheanceRequest echeanceRequest1 = new EcheanceRequest();
-        echeanceRequest1.setId(1L);
-        echeanceRequest1.setActive(true);
-
-        EcheanceRequest echeanceRequest2 = new EcheanceRequest();
-        echeanceRequest2.setId(2L);
-        echeanceRequest2.setActive(false);
-
-        echeances.add(echeanceRequest1);
-        echeances.add(echeanceRequest2);
+        EcheanceRequest echeanceRequest1 = new EcheanceRequestBuilder().build();
+        EcheanceRequest echeanceRequest2 = new EcheanceRequestBuilder().isInactive().build();
 
         Product product = new Product();
-        product.setEcheanceRequests(echeances);
+        product.addEcheance(echeanceRequest1);
+        product.addEcheance(echeanceRequest2);
 
         //WHEN
         List<EcheanceRequest> echeanceRequestActive = product.getEcheanceRequestActive();
 
         //THEN
         assertThat(echeanceRequestActive).hasSize(1);
-        assertThat(extractProperty("id").from(echeanceRequestActive)).containsOnly(1L);
-    }
 
+    }
 }

@@ -1,7 +1,7 @@
 package com.xebia.service;
 
 import com.xebia.domain.Role;
-import com.xebia.domain.User;
+import com.xebia.domain.user.User;
 
 // Simulation d'une application externe
 public class UserService {

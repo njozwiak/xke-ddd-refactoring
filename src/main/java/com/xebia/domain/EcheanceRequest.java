@@ -1,11 +1,13 @@
 package com.xebia.domain;
 
+import com.xebia.domain.model.IdValueObject;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-public class EcheanceRequest {
+public class EcheanceRequest extends IdValueObject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

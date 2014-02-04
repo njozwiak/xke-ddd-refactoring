@@ -1,5 +1,7 @@
 package com.xebia.domain;
 
+import com.xebia.domain.user.User;
+
 import javax.persistence.*;
 
 @Entity

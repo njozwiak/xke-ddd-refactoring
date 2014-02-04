@@ -3,13 +3,14 @@ package com.xebia.domain;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+import com.xebia.domain.currency.Currency;
+import com.xebia.domain.model.Entity;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Entity
-public class Product {
+public class Product extends Entity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

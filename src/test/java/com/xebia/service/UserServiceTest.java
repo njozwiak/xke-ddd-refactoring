@@ -1,6 +1,6 @@
 package com.xebia.service;
 
-import com.xebia.domain.User;
+import com.xebia.domain.user.User;
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;

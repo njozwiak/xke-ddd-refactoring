@@ -1,4 +1,7 @@
-package com.xebia.domain;
+package com.xebia.domain.user;
+
+import com.xebia.domain.Role;
+import com.xebia.domain.Product;
 
 import javax.persistence.*;
 import java.util.List;

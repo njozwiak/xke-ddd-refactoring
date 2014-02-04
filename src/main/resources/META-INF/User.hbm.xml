@@ -15,7 +15,7 @@
 
         <bag name="products" lazy="true" fetch="select">
             <key column="PRODUCT_ID"/>
-            <one-to-many class="com.xebia.domain.product.Product"/>
+            <one-to-many class="com.xebia.domain.Product"/>
         </bag>
 
         <one-to-one name="role" class="com.xebia.domain.user.Role" cascade="all" lazy="false" constrained="true"/>

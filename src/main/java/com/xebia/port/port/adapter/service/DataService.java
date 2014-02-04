@@ -1,4 +1,4 @@
-package com.xebia.service;
+package com.xebia.port.port.adapter.service;
 
 import com.google.common.collect.Lists;
 

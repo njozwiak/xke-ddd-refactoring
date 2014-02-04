@@ -3,7 +3,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-access="field">
-    <class name="com.xebia.domain.product.Product">
+    <class name="com.xebia.domain.Product">
         <id name="id" type="long" unsaved-value="-1">
             <generator class="native"/>
         </id>

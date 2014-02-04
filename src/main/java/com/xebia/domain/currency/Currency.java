@@ -1,4 +1,4 @@
-package com.xebia.domain;
+package com.xebia.domain.currency;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
