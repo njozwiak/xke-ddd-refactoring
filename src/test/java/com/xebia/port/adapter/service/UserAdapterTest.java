@@ -2,6 +2,8 @@ package com.xebia.port.adapter.service;
 
 import org.junit.Test;
 
+// TODO fill tests
+
 public class UserAdapterTest {
 
 

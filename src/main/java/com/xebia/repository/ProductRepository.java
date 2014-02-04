@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Provider;
 import javax.persistence.EntityManager;
 
+// TODO move to another package and create interface
+
 public class ProductRepository {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductRepository.class);
@@ -24,8 +26,7 @@ public class ProductRepository {
 
         try {
             return entityManager.find(Product.class, id);
-        }
-        finally {
+        } finally {
             entityManager.close();
         }
     }
@@ -37,13 +38,11 @@ public class ProductRepository {
             entityManager.getTransaction().begin();
             entityManager.merge(product);
             entityManager.getTransaction().commit();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             entityManager.getTransaction().rollback();
 
             LOGGER.error("Unable to save product: %s", e.getCause());
-        }
-        finally {
+        } finally {
             entityManager.close();
         }
     }
