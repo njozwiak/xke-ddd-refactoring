@@ -10,6 +10,8 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+// TODO 1.3 move into the appropriate package
+
 public class Product extends Entity {
 
     @Id

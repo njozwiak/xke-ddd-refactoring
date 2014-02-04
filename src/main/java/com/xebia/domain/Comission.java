@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
+// TODO 1.1 move into the appropriate package
+
 @Entity
 public class Comission {
 

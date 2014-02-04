@@ -4,6 +4,8 @@ import com.xebia.domain.user.User;
 
 import javax.persistence.*;
 
+// TODO 1.5 move into the appropriate package
+
 @Entity
 public class Role {
 

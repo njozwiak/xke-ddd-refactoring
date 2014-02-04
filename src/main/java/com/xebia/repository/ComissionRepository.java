@@ -6,7 +6,7 @@ import com.xebia.domain.Comission;
 import javax.inject.Provider;
 import javax.persistence.EntityManager;
 
-// TODO 1.2 move to another package and create interface
+// TODO 2.2 move to another package and create interface
 
 public class ComissionRepository {
 
