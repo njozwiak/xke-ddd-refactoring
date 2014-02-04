@@ -21,6 +21,7 @@ public class User {
 
     private String address;
 
+    // TODO 6.2 how check format validity ?
     private String email;
 
     private String phoneNumber;

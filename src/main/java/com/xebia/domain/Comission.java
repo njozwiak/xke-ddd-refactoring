@@ -19,6 +19,7 @@ public class Comission {
 
     private BigDecimal montant;
 
+    // TODO 4.2 Remove
     @ManyToOne
     @JoinColumn(name = "Id")
     private Product product;

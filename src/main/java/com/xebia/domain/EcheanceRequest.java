@@ -17,6 +17,7 @@ public class EcheanceRequest extends ValueObject {
 
     private Date paymentDate;
 
+    // TODO 4.2 Remove
     @ManyToOne
     @JoinColumn(name = "Id")
     private Product product;

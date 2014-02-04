@@ -14,6 +14,7 @@ import java.util.List;
 
 public class Product extends Entity {
 
+    // TODO 4.1 replace by ProductId
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -28,12 +29,15 @@ public class Product extends Entity {
 
     private Date placeDate;
 
+    // TODO 6.1 add an encapsulation layer
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<EcheanceRequest> echeanceRequests = Lists.newArrayList();
 
+    // TODO 6.1 add an encapsulation layer
     @OneToMany
     private List<Currency> currencies = Lists.newArrayList();
 
+    // TODO 6.1 add an encapsulation layer
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<Comission> comissions = Lists.newArrayList();
 
