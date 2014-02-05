@@ -1,26 +1,26 @@
 package com.xebia.repository;
 
 import com.google.inject.Inject;
-import com.xebia.domain.Product;
+import com.xebia.domain.product.Product;
+import com.xebia.domain.product.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Provider;
 import javax.persistence.EntityManager;
 
-// TODO 2.1 move to another package and create interface
+public class ProductRepositoryImpl implements ProductRepository {
 
-public class ProductRepository {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductRepository.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductRepositoryImpl.class);
 
     private Provider<EntityManager> entityManagerProvider;
 
     @Inject
-    public ProductRepository(Provider<EntityManager> entityManagerProvider) {
+    public ProductRepositoryImpl(Provider<EntityManager> entityManagerProvider) {
         this.entityManagerProvider = entityManagerProvider;
     }
 
+    @Override
     public Product findOne(Long id) {
         EntityManager entityManager = entityManagerProvider.get();
 
@@ -31,6 +31,7 @@ public class ProductRepository {
         }
     }
 
+    @Override
     public void save(Product product) {
         EntityManager entityManager = entityManagerProvider.get();
 

@@ -1,21 +1,13 @@
 package com.xebia.domain.currency;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.xebia.domain.model.ValueObject;
 
-@Entity
-public class Currency {
+public class Currency extends ValueObject {
 
     public static final String EUR_ISO = "EUR";
-
     public static final String USD_ISO = "USD";
-
     private Long id;
-
     private String name;
-
     private String isoCode;
 
     public Currency() {
@@ -27,8 +19,6 @@ public class Currency {
         this.isoCode = isoCode;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -37,19 +27,12 @@ public class Currency {
         this.id = id;
     }
 
-    public String getName() {
+    public String name() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getIsoCode() {
+    public String isoCode() {
         return isoCode;
     }
 
-    public void setIsoCode(String isoCode) {
-        this.isoCode = isoCode;
-    }
 }

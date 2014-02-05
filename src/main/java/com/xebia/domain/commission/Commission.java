@@ -1,27 +1,23 @@
-package com.xebia.domain;
+package com.xebia.domain.commission;
 
-import javax.persistence.*;
+import com.xebia.domain.product.Product;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 // TODO 1.1 move into the appropriate package
 
-@Entity
-public class Comission {
+public class Commission {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date dateDebut;
 
     private Date dateFin;
 
-    private BigDecimal montant;
+    private Montant montant;
 
     // TODO 4.2 Remove
-    @ManyToOne
-    @JoinColumn(name = "Id")
     private Product product;
 
     public Long getId() {
@@ -48,11 +44,11 @@ public class Comission {
         this.dateFin = dateFin;
     }
 
-    public BigDecimal getMontant() {
+    public Montant getMontant() {
         return montant;
     }
 
-    public void setMontant(BigDecimal montant) {
+    public void setMontant(Montant montant) {
         this.montant = montant;
     }
 

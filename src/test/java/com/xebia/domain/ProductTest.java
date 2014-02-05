@@ -1,11 +1,14 @@
 package com.xebia.domain;
 
+import com.xebia.domain.echeance.EcheanceRequest;
 import com.xebia.domain.echeance.EcheanceRequestBuilder;
+import com.xebia.domain.product.Product;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.fest.assertions.api.Assertions.assertThat;
+
 
 public class ProductTest {
 
@@ -20,7 +23,7 @@ public class ProductTest {
         product.addEcheance(echeanceRequest2);
 
         //WHEN
-        List<EcheanceRequest> echeanceRequestActive = product.getEcheanceRequestActive();
+        List<EcheanceRequest> echeanceRequestActive = product.getEcheanceRequestBook().getEcheanceRequestActive();
 
         //THEN
         assertThat(echeanceRequestActive).hasSize(1);

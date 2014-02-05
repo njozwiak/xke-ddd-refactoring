@@ -9,7 +9,7 @@ public class UserServiceTest {
 
     @Test
     public void should_get_user_by_id() throws Exception {
-        UserService userService = new UserService();
+        UserService userService = new UserServiceImpl();
 
         User user = userService.getUserById(2L);
 

@@ -1,35 +1,36 @@
 package com.xebia.repository;
 
 import com.google.inject.Inject;
-import com.xebia.domain.Comission;
+import com.xebia.domain.commission.Commission;
+import com.xebia.domain.commission.CommissionRepository;
 
 import javax.inject.Provider;
 import javax.persistence.EntityManager;
 
-// TODO 2.2 move to another package and create interface
-
-public class ComissionRepository {
+public class CommissionRepositoryImpl implements CommissionRepository {
 
     private Provider<EntityManager> entityManagerProvider;
 
     @Inject
-    public ComissionRepository(Provider<EntityManager> entityManagerProvider) {
+    public CommissionRepositoryImpl(Provider<EntityManager> entityManagerProvider) {
         this.entityManagerProvider = entityManagerProvider;
     }
 
-    public void save(Comission comission) {
+    @Override
+    public void save(Commission commission) {
         EntityManager entityManager = entityManagerProvider.get();
 
         entityManager.getTransaction().begin();
-        entityManager.merge(comission);
+        entityManager.merge(commission);
         entityManager.getTransaction().commit();
     }
 
-    public Comission findOne(Long id) {
+    @Override
+    public Commission findOne(Long id) {
         EntityManager entityManager = entityManagerProvider.get();
 
         try {
-            return entityManager.find(Comission.class, id);
+            return entityManager.find(Commission.class, id);
         }
         finally {
             entityManager.close();

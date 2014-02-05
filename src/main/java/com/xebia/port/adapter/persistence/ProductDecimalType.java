@@ -51,7 +51,7 @@ public class ProductDecimalType implements UserType {
             preparedStatement.setNull(index, BigDecimalType.INSTANCE.sqlType());
         } else {
             final ProductDecimal productDecimal = (ProductDecimal) value;
-            preparedStatement.setBigDecimal(index, productDecimal.getValue());
+            preparedStatement.setBigDecimal(index, productDecimal.decimal());
         }
     }
 

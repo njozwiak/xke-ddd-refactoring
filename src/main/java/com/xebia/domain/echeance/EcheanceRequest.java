@@ -1,42 +1,26 @@
-package com.xebia.domain;
+package com.xebia.domain.echeance;
 
-import com.xebia.domain.model.ValueObject;
+import com.xebia.domain.model.Entity;
+import com.xebia.domain.product.Product;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
 // TODO 1.2 move into the appropriate package
 
-@Entity
-public class EcheanceRequest extends ValueObject {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class EcheanceRequest extends Entity {
 
     private Date paymentDate;
 
-    // TODO 4.2 Remove
-    @ManyToOne
-    @JoinColumn(name = "Id")
     private Product product;
 
-    private BigDecimal crd;
+    private ProductDecimal crd;
 
     private BigDecimal reoffer;
 
     private boolean active;
 
     public EcheanceRequest() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Date getPaymentDate() {
@@ -55,11 +39,11 @@ public class EcheanceRequest extends ValueObject {
         this.product = product;
     }
 
-    public BigDecimal getCrd() {
+    public ProductDecimal getCrd() {
         return crd;
     }
 
-    public void setCrd(BigDecimal crd) {
+    public void setCrd(ProductDecimal crd) {
         this.crd = crd;
     }
 

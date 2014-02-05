@@ -1,13 +1,11 @@
-package com.xebia.domain.comission;
+package com.xebia.domain.commission;
 
 import com.xebia.domain.echeance.ProductDecimal;
 import com.xebia.domain.currency.Currency;
-import com.xebia.domain.exception.MontantException;
 
 public class Montant {
 
     private ProductDecimal value;
-
     private Currency currency;
 
     public Montant() {
@@ -27,7 +25,11 @@ public class Montant {
     }
 
     public Montant add(Montant montant) throws MontantException {
-        //TODO 7
-
+        if (currency == montant.currency) {
+            return new Montant(value.add(montant.value), montant.currency);
+        } else {
+            throw new MontantException();
+        }
     }
+
 }

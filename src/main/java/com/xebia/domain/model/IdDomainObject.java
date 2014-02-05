@@ -16,7 +16,7 @@ public class IdDomainObject implements Serializable {
     return this.id;
   }
 
-  private void setId(long anId) {
+  public void setId(long anId) {
     this.id = anId;
   }
 

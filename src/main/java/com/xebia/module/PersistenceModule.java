@@ -2,12 +2,12 @@ package com.xebia.module;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
-import com.xebia.application.ProductApplicationService;
-import com.xebia.infrastructure.persistence.HibernateComissionRepository;
-import com.xebia.infrastructure.persistence.HibernateProductRepository;
-import com.xebia.repository.ComissionRepository;
-import com.xebia.repository.ProductRepository;
-import com.xebia.service.ProductService;
+import com.xebia.domain.commission.CommissionRepository;
+import com.xebia.domain.product.ProductRepository;
+import com.xebia.domain.product.ProductService;
+import com.xebia.repository.CommissionRepositoryImpl;
+import com.xebia.repository.ProductRepositoryImpl;
+import com.xebia.service.ProductServiceImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,10 +22,10 @@ public class PersistenceModule extends AbstractModule {
         entityManagerFactory = Persistence.createEntityManagerFactory("dddDB");
 
         //TODO
-        bind(ComissionRepository.class).to();
-        bind(ProductRepository.class).to();
+        bind(CommissionRepository.class).to(CommissionRepositoryImpl.class);
+        bind(ProductRepository.class).to(ProductRepositoryImpl.class);
 
-        bind(ProductService.class);
+        bind(ProductService.class).to(ProductServiceImpl.class);
     }
 
     @Provides

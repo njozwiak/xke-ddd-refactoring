@@ -1,7 +1,7 @@
 package com.xebia.port.adapter.persistence;
 
 import com.google.common.base.Objects;
-import com.xebia.domain.comission.Montant;
+import com.xebia.domain.commission.Montant;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.echeance.ProductDecimal;
 import org.hibernate.HibernateException;
@@ -59,7 +59,7 @@ public class MontantType implements UserType {
         String isoCode = (String) StringType.INSTANCE.get(rs, names[2], session);
 
         if (null != value && null != name && null != isoCode) {
-            return new Montant(new ProductDecimal(value), new Currency(name, isoCode));
+            return new Montant(new ProductDecimal(value), new Currency(1L, name, isoCode));
         }
 
         return null;
