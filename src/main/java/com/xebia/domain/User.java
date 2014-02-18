@@ -1,7 +1,10 @@
 package com.xebia.domain;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -21,9 +24,6 @@ public class User {
     private String email;
 
     private String phoneNumber;
-
-    @OneToMany
-    private List<Product> products;
 
     @OneToOne
     private Role role;
@@ -82,14 +82,6 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
     }
 
     public Role getRole() {
