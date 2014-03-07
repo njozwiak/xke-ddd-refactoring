@@ -31,9 +31,6 @@ public class Product {
     @OneToMany
     private List<Currency> currencies = Lists.newArrayList();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    private List<Comission> comissions = Lists.newArrayList();
-
     public Long getId() {
         return id;
     }
@@ -80,14 +77,6 @@ public class Product {
 
     public void setPlaceDate(Date placeDate) {
         this.placeDate = placeDate;
-    }
-
-    public List<Comission> getComissions() {
-        return comissions;
-    }
-
-    public void setComissions(List<Comission> comissions) {
-        this.comissions = comissions;
     }
 
     public List<EcheanceRequest> getEcheanceRequests() {

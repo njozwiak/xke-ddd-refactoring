@@ -4,7 +4,6 @@
              version="2.0">
 
     <persistence-unit name="dddDB">
-        <class>com.xebia.domain.Comission</class>
         <class>com.xebia.domain.Currency</class>
         <class>com.xebia.domain.EcheanceRequest</class>
         <class>com.xebia.domain.Product</class>

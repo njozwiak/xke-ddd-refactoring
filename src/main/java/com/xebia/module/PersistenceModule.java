@@ -2,8 +2,6 @@ package com.xebia.module;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
-
-import com.xebia.repository.ComissionRepository;
 import com.xebia.repository.EcheanceRequestRepository;
 import com.xebia.repository.ProductRepository;
 import com.xebia.service.ProductService;
@@ -20,7 +18,6 @@ public class PersistenceModule extends AbstractModule {
     protected void configure() {
         entityManagerFactory = Persistence.createEntityManagerFactory("dddDB");
 
-        bind(ComissionRepository.class);
         bind(EcheanceRequestRepository.class);
         bind(ProductRepository.class);
 
