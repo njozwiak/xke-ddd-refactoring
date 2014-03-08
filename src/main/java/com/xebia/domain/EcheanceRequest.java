@@ -19,8 +19,6 @@ public class EcheanceRequest {
 
     private BigDecimal crd;
 
-    private BigDecimal reoffer;
-
     private boolean active;
 
     public EcheanceRequest() {
@@ -56,14 +54,6 @@ public class EcheanceRequest {
 
     public void setCrd(BigDecimal crd) {
         this.crd = crd;
-    }
-
-    public BigDecimal getReoffer() {
-        return reoffer;
-    }
-
-    public void setReoffer(BigDecimal reoffer) {
-        this.reoffer = reoffer;
     }
 
     public boolean getActive() {

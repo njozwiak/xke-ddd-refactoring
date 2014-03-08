@@ -47,7 +47,6 @@ public class ProductService {
 
             echeanceRequestValorise.setPaymentDate(echeanceRequest.getPaymentDate());
             echeanceRequestValorise.setCrd(crdValorise);
-            echeanceRequestValorise.setReoffer(echeanceRequest.getReoffer());
 
             echeanceRequestValorises.add(echeanceRequestValorise);
         }
