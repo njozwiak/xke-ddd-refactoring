@@ -30,12 +30,5 @@
             </bag>
         </component>
 
-        <component name="comissionBook">
-            <bag name="comissions" cascade="all,delete-orphan" inverse="false" lazy="true">
-                <key column="COMISSION_ID"/>
-                <one-to-many class="com.xebia.domain.comission.Comission"/>
-            </bag>
-        </component>
-
     </class>
 </hibernate-mapping>

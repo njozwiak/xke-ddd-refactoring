@@ -8,7 +8,6 @@
         </id>
         <property name="paymentDate" type="java.util.Date" />
         <property name="crd" type="productDecimal" />
-        <property name="reoffer" type="java.math.BigDecimal" />
         <property name="active" type="java.lang.Boolean" />
     </class>
 </hibernate-mapping>

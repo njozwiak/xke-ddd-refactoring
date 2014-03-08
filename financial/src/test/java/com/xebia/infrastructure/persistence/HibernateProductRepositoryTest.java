@@ -9,7 +9,6 @@ import com.xebia.domain.product.ProductBuilder;
 import com.xebia.domain.product.ProductRepository;
 import org.junit.Test;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import static org.fest.assertions.Assertions.assertThat;
@@ -27,9 +26,7 @@ public class HibernateProductRepositoryTest extends AbstractIntegrationTest {
     @Test
     public void should_save_product() {
         // Given
-        EcheanceRequest echeanceRequest = new EcheanceRequestBuilder().withPaymentDate(new Date())
-                .withReoffer(BigDecimal.TEN)
-                .build();
+        EcheanceRequest echeanceRequest = new EcheanceRequestBuilder().withPaymentDate(new Date()).build();
         Product product = new ProductBuilder().withName("Save product test").withMarketDate(new Date()).build();
         product.addEcheance(echeanceRequest);
 

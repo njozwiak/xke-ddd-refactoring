@@ -5,7 +5,6 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
-
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.echeance.EcheanceRequest;
 import com.xebia.domain.echeance.EcheanceRequestBuilder;
@@ -46,7 +45,6 @@ public class ProductApplicationService {
 
             EcheanceRequest echeanceRequestValorise = new EcheanceRequestBuilder().withPaymentDate(echeanceRequest.paymentDate())
                     .withCrd(crdValorise)
-                    .withReoffer(echeanceRequest.reoffer())
                     .build();
             echeanceRequestValorises.add(echeanceRequestValorise);
         }

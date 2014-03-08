@@ -3,7 +3,6 @@ package com.xebia.domain.echeance;
 
 import com.xebia.model.IdValueObject;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class EcheanceRequest extends IdValueObject {
@@ -12,26 +11,19 @@ public class EcheanceRequest extends IdValueObject {
 
     private ProductDecimal crd;
 
-    private BigDecimal reoffer;
-
     private boolean active = true;
 
     protected EcheanceRequest() {
         super();
     }
 
-    public EcheanceRequest(Date paymentDate, ProductDecimal crd, BigDecimal reoffer) {
+    public EcheanceRequest(Date paymentDate, ProductDecimal crd) {
         this.paymentDate = paymentDate;
         this.setCrd(crd);
-        this.setReoffer(reoffer);
     }
 
     public ProductDecimal crd() {
         return crd;
-    }
-
-    public BigDecimal reoffer() {
-        return reoffer;
     }
 
     public boolean active() {
@@ -48,10 +40,6 @@ public class EcheanceRequest extends IdValueObject {
 
     protected void setCrd(ProductDecimal crd) {
         this.crd = crd;
-    }
-
-    protected void setReoffer(BigDecimal reoffer) {
-        this.reoffer = reoffer;
     }
 
     protected void setActive(boolean active) {
