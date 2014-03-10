@@ -54,7 +54,6 @@
         <li> il est identifié par le code de référence qui est unique </li>
         <li> il possède des échéances</li>
         <li> il possède des devises (currencies)</li>
-        <li>  il possède éventuellement des commissions</li>
     </ul>
 </p>
 
@@ -63,7 +62,6 @@
         Une échéance correspond à des remboursements périodiques:
         <li> une date de remboursement </li>
         <li> un capital restant dû (crd) : c’est le capital total qui reste après paiement de l’échéance</li>
-        <li> un reoffer qui est une réduction que l’on peut accorder sur l’échéance</li>
     </ul>
 </p>
 
@@ -72,14 +70,6 @@ Une devise (EUR, USD, CHF, etc) correspond à la monnaie d’un pays. Cela sert 
 Dans les devises, nous avons la notion de funding : ce sont des devises pour lesquelles nous n’avons pas à effectuer de conversion. 
 Le projet contient deux fundings : EUR et USD.
 La devise de référence est EUR.
-</p>
-
-<p>
-    <ul>
-        Une commission correspond à une pénalité qui peut être appliquée sur une ou plusieurs échéances: 
-        <li> date de début et de fin d’application </li>
-        <li> montant de la pénalité</li>
-    </ul>
 </p>
 
 <p>
@@ -117,7 +107,6 @@ La devise de référence est EUR.
             <ul>
                 <li> Des builders pour la construction plus lisible </li>
                 <li> Utilisez le ProductDecimal pour le crd (EcheanceRequest) </li>
-                <li> Utilisez le Montant pour le montant de la Commission </li>
                 <li> Rendre des concepts implicites, explicites (String email => EmailAddress object) et des règles de validations </li>
             </ul>
         </li>
