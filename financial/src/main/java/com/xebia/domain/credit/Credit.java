@@ -1,5 +1,6 @@
 package com.xebia.domain.credit;
 
+import com.google.common.collect.Lists;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.currency.CurrencyBook;
 import com.xebia.domain.echeance.EcheanceRequest;
@@ -23,7 +24,7 @@ public class Credit extends Entity {
 
     private Date placeDate;
 
-    private EcheanceRequestBook echeanceRequestBook = new EcheanceRequestBook();
+    private List<EcheanceRequest> echeanceRequests = Lists.newArrayList();
 
     private CurrencyBook currencyBook = new CurrencyBook();
 
@@ -77,10 +78,6 @@ public class Credit extends Entity {
         this.placeDate = placeDate;
     }
 
-    public void addEcheance(EcheanceRequest echeanceRequest) {
-        this.echeanceRequestBook.getEcheanceRequests().add(echeanceRequest);
-    }
-
     public CurrencyBook getCurrencyBook() {
         return currencyBook;
     }
@@ -114,7 +111,14 @@ public class Credit extends Entity {
     }
 
     public List<EcheanceRequest> getEcheanceRequestActive() {
-        return this.echeanceRequestBook.getEcheanceRequestActive();
+        return this.getEcheanceRequestActive();
     }
 
+    public List<EcheanceRequest> getEcheanceRequests() {
+        return echeanceRequests;
+    }
+
+    public void setEcheanceRequests(List<EcheanceRequest> echeanceRequests) {
+        this.echeanceRequests = echeanceRequests;
+    }
 }

@@ -78,10 +78,10 @@ public class CreditApplicationServiceTest {
         // Given
         Credit credit = new CreditBuilder().build();
 
-        credit.addEcheance(new EcheanceRequest(new DateTime(2014, 5, 1, 0, 0).toDate(), new BigDecimal("1500")));
-        credit.addEcheance(new EcheanceRequest(new DateTime(2014, 6, 1, 0, 0).toDate(), new BigDecimal("1000")));
-        credit.addEcheance(new EcheanceRequest(new DateTime(2014, 7, 1, 0, 0).toDate(), new BigDecimal("500")));
-        credit.addEcheance(new EcheanceRequest(new DateTime(2014, 8, 1, 0, 0).toDate(), new BigDecimal("0")));
+        credit.getEcheanceRequests().add(new EcheanceRequest(new DateTime(2014, 5, 1, 0, 0).toDate(), new BigDecimal("1500")));
+        credit.getEcheanceRequests().add(new EcheanceRequest(new DateTime(2014, 6, 1, 0, 0).toDate(), new BigDecimal("1000")));
+        credit.getEcheanceRequests().add(new EcheanceRequest(new DateTime(2014, 7, 1, 0, 0).toDate(), new BigDecimal("500")));
+        credit.getEcheanceRequests().add(new EcheanceRequest(new DateTime(2014, 8, 1, 0, 0).toDate(), new BigDecimal("0")));
 
         // When
         Integer result = productService.countRemainingEcheanceAfter(credit, new DateTime(2014, 6, 2, 0, 0).toDate());

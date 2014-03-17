@@ -53,7 +53,7 @@ public class CreditApplicationService {
     public void addEcheanceToCredit(Long idProduct, EcheanceRequest echeanceRequest) {
         Credit credit = creditRepository.findOne(idProduct);
 
-        credit.addEcheance(echeanceRequest);
+        credit.getEcheanceRequests().add(echeanceRequest);
     }
 
     BigDecimal applyCrossChange(BigDecimal value, Date date) {
