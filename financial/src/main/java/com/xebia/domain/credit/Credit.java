@@ -96,9 +96,7 @@ public class Credit extends Entity {
 
         if (object != null && this.getClass() == object.getClass()) {
             Credit typedObject = (Credit) object;
-            equalObjects = this.creditId.equals(typedObject.creditId) &&
-                    this.name.equals(typedObject.name) &&
-                    this.technicalCode.equals(typedObject.technicalCode);
+            equalObjects = this.creditId.equals(typedObject.creditId);
         }
 
         return equalObjects;
@@ -106,7 +104,7 @@ public class Credit extends Entity {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(creditId, name, technicalCode);
+        return Objects.hashCode(creditId);
     }
 
     public List<EcheanceRequest> getEcheanceRequestActive() {
