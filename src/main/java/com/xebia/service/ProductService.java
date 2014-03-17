@@ -32,14 +32,9 @@ public class ProductService {
         List<EcheanceRequest> echeanceRequestValorises = Lists.newArrayList();
 
         for (EcheanceRequest echeanceRequest : echeanceRequestActive) {
-            BigDecimal fixingPourDate = dataService.getFixingPourDate(dateValorisation);
-
             EcheanceRequest echeanceRequestValorise = new EcheanceRequest();
 
-            BigDecimal crdValorise = null;
-            if (echeanceRequest.getCrd() != null) {
-                crdValorise = echeanceRequest.getCrd().multiply(fixingPourDate);
-            }
+            BigDecimal crdValorise = echeanceRequest.getCrd();
 
             if (containsFundingCurrencies(product.getCurrencies())) {
                 crdValorise = applyCrossChange(crdValorise, dateValorisation);
