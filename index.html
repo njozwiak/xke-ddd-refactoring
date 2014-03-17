@@ -25,11 +25,11 @@
 </header>
 
 <section id="main_content">
-<h3>Domain Driven Design Product</h3>
+<h3>Domain Driven Design Credit</h3>
 
 <p>Le but de l’exercice est d’analyser le code et les règles fonctionnelles afin d’introduire les notions métiers dans le code à l’aide des concepts issues du DDD.</p>
 
-<p>L’application est un back end dans lequel des utilisateurs peuvent valoriser des produits financiers.</p>
+<p>L’application est un back end dans lequel des utilisateurs peuvent valoriser des emprunts.</p>
 
 <p>
     <ul>
@@ -50,7 +50,7 @@
 
 <p>
     <ul>
-        Un produit financier possède les caractéristiques suivantes :
+        Un emprunt possède les caractéristiques suivantes :
         <li> il est identifié par le code de référence qui est unique </li>
         <li> il possède des échéances</li>
         <li> il possède des devises (currencies)</li>
@@ -75,13 +75,12 @@ La devise de référence est EUR.
 <p>
     <ul>
         L’application est en relation avec deux autres applications pour:
-        <li> récupérer le taux (fixing) à une date ou pour une période donnée </li>
         <li> récupérer les taux de changes (conversions en devises)</li>
         <li> récupérer les utilisateurs</li>
     </ul>
 </p>
 
-<p>Enfin un service est présent permettant de valoriser les produits financiers avec des règles spécifiques. Cela revient à appliquer les taux sur notre échéancier.</p>
+<p>Enfin un service est présent permettant d'appliquer le taux de conversion sur les échéances si besoin.</p>
 
 <h3>But de l'exercice</h3>
 
@@ -106,7 +105,7 @@ La devise de référence est EUR.
         <li> Ajouter de nouveaux objets
             <ul>
                 <li> Des builders pour la construction plus lisible </li>
-                <li> Utilisez le ProductDecimal pour le crd (EcheanceRequest) </li>
+                <li> Utilisez le CreditDecimal pour le crd (EcheanceRequest) </li>
                 <li> Rendre des concepts implicites, explicites (String email => EmailAddress object) et des règles de validations </li>
             </ul>
         </li>
