@@ -67,7 +67,7 @@ public class CreditApplicationServiceTest {
         when(creditRepository.findOne(productId)).thenReturn(credit);
 
         // When
-        productService.addEcheanceToProduct(productId, echeance);
+        productService.addEcheanceToCredit(productId, echeance);
         // Then
 
         assertThat(credit.getEcheanceRequestActive()).hasSize(1).contains(echeance);

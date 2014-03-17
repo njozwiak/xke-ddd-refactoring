@@ -50,7 +50,7 @@ public class CreditApplicationService {
         return echeanceRequestValorises;
     }
 
-    public void addEcheanceToProduct(Long idProduct, EcheanceRequest echeanceRequest) {
+    public void addEcheanceToCredit(Long idProduct, EcheanceRequest echeanceRequest) {
         Credit credit = creditRepository.findOne(idProduct);
 
         credit.addEcheance(echeanceRequest);
