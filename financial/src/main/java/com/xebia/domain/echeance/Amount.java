@@ -1,7 +1,7 @@
 package com.xebia.domain.echeance;
 
 import com.xebia.domain.currency.Currency;
-import com.xebia.domain.exception.MontantException;
+import com.xebia.domain.exception.AmountException;
 
 public class Amount {
 
@@ -25,12 +25,12 @@ public class Amount {
         return currency;
     }
 
-    public Amount add(Amount amount) throws MontantException {
+    public Amount add(Amount amount) throws AmountException {
         if (this.currency.equals(amount.getCurrency())) {
             CreditDecimal newValue = this.getValue().add(amount.getValue());
             return new Amount(newValue, this.getCurrency());
         } else {
-            throw new MontantException("cannot add amount with different currencies");
+            throw new AmountException("cannot add amount with different currencies");
         }
 
     }

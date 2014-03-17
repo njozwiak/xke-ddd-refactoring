@@ -29,25 +29,25 @@ public class CreditApplicationService {
         this.creditRepository = creditRepository;
     }
 
-    public List<EcheanceRequest> valoriseProduct(Credit credit, Date dateValorisation) {
+    public List<EcheanceRequest> valuationCredit(Credit credit, Date valueDate) {
 
         List<EcheanceRequest> echeanceRequestActive = credit.getEcheanceRequestActive();
-        List<EcheanceRequest> echeanceRequestValorises = Lists.newArrayList();
+        List<EcheanceRequest> echeanceRequestValuations = Lists.newArrayList();
 
         for (EcheanceRequest echeanceRequest : echeanceRequestActive) {
-            CreditDecimal crdValorise = echeanceRequest.crd();
+            CreditDecimal creditValuation = echeanceRequest.crd();
 
             if (containsFundingCurrencies(credit.getCurrencyBook().getCurrencies())) {
-                crdValorise = applyCrossChange(crdValorise, dateValorisation);
+                creditValuation = applyCrossChange(creditValuation, valueDate);
             }
 
-            EcheanceRequest echeanceRequestValorise = new EcheanceRequestBuilder().withPaymentDate(echeanceRequest.paymentDate())
-                    .withCrd(crdValorise)
+            EcheanceRequest echeanceRequestValuation = new EcheanceRequestBuilder().withPaymentDate(echeanceRequest.paymentDate())
+                    .withCrd(creditValuation)
                     .build();
-            echeanceRequestValorises.add(echeanceRequestValorise);
+            echeanceRequestValuations.add(echeanceRequestValuation);
         }
 
-        return echeanceRequestValorises;
+        return echeanceRequestValuations;
     }
 
     public void addEcheanceToCredit(Long idProduct, EcheanceRequest echeanceRequest) {

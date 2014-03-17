@@ -9,15 +9,15 @@ import java.lang.reflect.Constructor;
 public class UserAdapter {
 
     public <T extends FinancialPerson> T toFinancialPerson(User user, Class<T> financialPersonClass) {
-        T financialPersonn;
+        T financialPerson;
 
         try {
-            financialPersonn = newFinancialPerson(user.getFirstname(), user.getLastname(), new EmailAddress(user.getEmail()), financialPersonClass);
+            financialPerson = newFinancialPerson(user.getFirstname(), user.getLastname(), new EmailAddress(user.getEmail()), financialPersonClass);
         } catch (Exception e) {
             throw new IllegalStateException("Failed because: " + e.getMessage(), e);
         }
 
-        return financialPersonn;
+        return financialPerson;
     }
 
     private <T extends FinancialPerson> T newFinancialPerson(String firstname, String lastname, EmailAddress email, Class<T> financialPersonClass)
