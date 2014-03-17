@@ -29,15 +29,6 @@ public class Currency extends IdValueObject {
         return isoCode;
     }
 
-    protected void setName(String name) {
-        this.name = name;
-    }
-
-    protected void setIsoCode(String isoCode) {
-        this.isoCode = isoCode;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
