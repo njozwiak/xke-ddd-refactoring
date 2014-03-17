@@ -1,8 +1,5 @@
 package com.xebia.port.adapter.service;
 
-import com.xebia.domain.financialPerson.Pricer;
-import com.xebia.domain.financialPerson.Sales;
-import com.xebia.domain.financialPerson.Trader;
 import com.xebia.user.User;
 import com.xebia.user.UserBuilder;
 import org.junit.Before;
