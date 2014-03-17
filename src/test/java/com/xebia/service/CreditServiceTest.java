@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class ProductServiceTest {
+public class CreditServiceTest {
 
     private CreditService creditService;
 
@@ -70,7 +70,7 @@ public class ProductServiceTest {
         when(creditRepository.findOne(productId)).thenReturn(credit);
 
         // When
-        creditService.addEcheanceToProduct(productId, echeance);
+        creditService.addEcheanceToCredit(productId, echeance);
         // Then
 
         assertThat(credit.getEcheanceRequestActive()).hasSize(1).contains(echeance);
@@ -90,7 +90,7 @@ public class ProductServiceTest {
         // When
         when(dataService.getCrossChange(Matchers.<Date>any())).thenReturn(BigDecimal.TEN);
 
-        List<EcheanceRequest> valoriseEcheanceRequests = creditService.valoriseProduct(credit, new DateTime(2014, 2, 3, 0, 0).toDate());
+        List<EcheanceRequest> valoriseEcheanceRequests = creditService.valuationCredit(credit, new DateTime(2014, 2, 3, 0, 0).toDate());
 
         // Then
         assertThat(valoriseEcheanceRequests).hasSize(1);

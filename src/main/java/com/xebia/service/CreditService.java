@@ -27,30 +27,30 @@ public class CreditService {
         this.creditRepository = creditRepository;
     }
 
-    public List<EcheanceRequest> valoriseProduct(Credit credit, Date dateValorisation) {
+    public List<EcheanceRequest> valuationCredit(Credit credit, Date valueDate) {
         List<EcheanceRequest> echeanceRequestActive = credit.getEcheanceRequestActive();
-        List<EcheanceRequest> echeanceRequestValorises = Lists.newArrayList();
+        List<EcheanceRequest> echeanceRequestValuations = Lists.newArrayList();
 
         for (EcheanceRequest echeanceRequest : echeanceRequestActive) {
-            EcheanceRequest echeanceRequestValorise = new EcheanceRequest();
+            EcheanceRequest echeanceRequestValuation = new EcheanceRequest();
 
-            BigDecimal crdValorise = echeanceRequest.getCrd();
+            BigDecimal creditValuation = echeanceRequest.getCrd();
 
             if (containsFundingCurrencies(credit.getCurrencies())) {
-                crdValorise = applyCrossChange(crdValorise, dateValorisation);
+                creditValuation = applyCrossChange(creditValuation, valueDate);
             }
 
-            echeanceRequestValorise.setPaymentDate(echeanceRequest.getPaymentDate());
-            echeanceRequestValorise.setCrd(crdValorise);
+            echeanceRequestValuation.setPaymentDate(echeanceRequest.getPaymentDate());
+            echeanceRequestValuation.setCrd(creditValuation);
 
-            echeanceRequestValorises.add(echeanceRequestValorise);
+            echeanceRequestValuations.add(echeanceRequestValuation);
         }
 
-        return echeanceRequestValorises;
+        return echeanceRequestValuations;
     }
 
-    public void addEcheanceToProduct(Long productId, EcheanceRequest echeance) {
-        Credit credit = creditRepository.findOne(productId);
+    public void addEcheanceToCredit(Long creditId, EcheanceRequest echeance) {
+        Credit credit = creditRepository.findOne(creditId);
         credit.getEcheanceRequests().add(echeance);
     }
 
