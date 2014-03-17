@@ -1,8 +1,21 @@
 package com.xebia.model;
 
-public class IdValueObject extends IdDomainObject {
+import java.io.Serializable;
 
-  public IdValueObject() {
-    super();
-  }
+public class IdValueObject implements Serializable {
+
+    private long id;
+
+    public IdValueObject() {
+        super();
+        this.setId(-1);
+    }
+
+    protected long id() {
+        return this.id;
+    }
+
+    private void setId(long anId) {
+        this.id = anId;
+    }
 }
