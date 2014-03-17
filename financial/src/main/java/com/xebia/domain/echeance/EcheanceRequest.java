@@ -50,4 +50,21 @@ public class EcheanceRequest extends IdValueObject {
         this.setActive(false);
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EcheanceRequest)) return false;
+
+        EcheanceRequest that = (EcheanceRequest) o;
+
+        if (id() != that.id()) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id() ^ (id() >>> 32));
+    }
 }
