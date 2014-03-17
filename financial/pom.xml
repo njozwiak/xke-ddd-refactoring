@@ -15,8 +15,8 @@
         <dependency>
             <groupId>xke-ddd-refactoring</groupId>
             <artifactId>identity</artifactId>
-            <version>1.0</version>
         </dependency>
+
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
