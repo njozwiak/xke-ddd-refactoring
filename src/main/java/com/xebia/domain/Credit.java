@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Product {
+public class Credit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +25,7 @@ public class Product {
 
     private Date placeDate;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "credit")
     private List<EcheanceRequest> echeanceRequests = Lists.newArrayList();
 
     @OneToMany

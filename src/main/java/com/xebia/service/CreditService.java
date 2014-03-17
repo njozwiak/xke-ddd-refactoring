@@ -5,30 +5,30 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
+import com.xebia.domain.Credit;
 import com.xebia.domain.Currency;
 import com.xebia.domain.EcheanceRequest;
-import com.xebia.domain.Product;
-import com.xebia.repository.ProductRepository;
+import com.xebia.repository.CreditRepository;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 @Transactional
-public class ProductService {
+public class CreditService {
 
     public DataService dataService;
 
-    public ProductRepository productRepository;
+    public CreditRepository creditRepository;
 
     @Inject
-    public ProductService(DataService dataService, ProductRepository productRepository) {
+    public CreditService(DataService dataService, CreditRepository creditRepository) {
         this.dataService = dataService;
-        this.productRepository = productRepository;
+        this.creditRepository = creditRepository;
     }
 
-    public List<EcheanceRequest> valoriseProduct(Product product, Date dateValorisation) {
-        List<EcheanceRequest> echeanceRequestActive = product.getEcheanceRequestActive();
+    public List<EcheanceRequest> valoriseProduct(Credit credit, Date dateValorisation) {
+        List<EcheanceRequest> echeanceRequestActive = credit.getEcheanceRequestActive();
         List<EcheanceRequest> echeanceRequestValorises = Lists.newArrayList();
 
         for (EcheanceRequest echeanceRequest : echeanceRequestActive) {
@@ -36,7 +36,7 @@ public class ProductService {
 
             BigDecimal crdValorise = echeanceRequest.getCrd();
 
-            if (containsFundingCurrencies(product.getCurrencies())) {
+            if (containsFundingCurrencies(credit.getCurrencies())) {
                 crdValorise = applyCrossChange(crdValorise, dateValorisation);
             }
 
@@ -50,8 +50,8 @@ public class ProductService {
     }
 
     public void addEcheanceToProduct(Long productId, EcheanceRequest echeance) {
-        Product product = productRepository.findOne(productId);
-        product.getEcheanceRequests().add(echeance);
+        Credit credit = creditRepository.findOne(productId);
+        credit.getEcheanceRequests().add(echeance);
     }
 
     public BigDecimal applyCrossChange(BigDecimal value, Date date) {

@@ -1,10 +1,10 @@
 package com.xebia.service;
 
 import com.google.common.collect.Lists;
+import com.xebia.domain.Credit;
 import com.xebia.domain.Currency;
 import com.xebia.domain.EcheanceRequest;
-import com.xebia.domain.Product;
-import com.xebia.repository.ProductRepository;
+import com.xebia.repository.CreditRepository;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,17 +25,17 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class ProductServiceTest {
 
-    private ProductService productService;
+    private CreditService creditService;
 
     @Mock
     private DataService dataService;
 
     @Mock
-    private ProductRepository productRepository;
+    private CreditRepository creditRepository;
 
     @Before
     public void init() throws Exception {
-        productService = new ProductService(dataService, productRepository);
+        creditService = new CreditService(dataService, creditRepository);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class ProductServiceTest {
         Currency euro = new Currency(1L, "EURO", Currency.EUR_ISO);
         Currency us = new Currency(2L, "US", Currency.USD_ISO);
 
-        Boolean result = productService.containsFundingCurrencies(Lists.newArrayList(euro, us));
+        Boolean result = creditService.containsFundingCurrencies(Lists.newArrayList(euro, us));
 
         assertThat(result).isTrue();
     }
@@ -52,7 +52,7 @@ public class ProductServiceTest {
     public void should_be_false_when_no_contains_funding_currencies() {
         Currency gpb = new Currency(1L, "GPB", "GPB");
 
-        Boolean result = productService.containsFundingCurrencies(Lists.newArrayList(gpb));
+        Boolean result = creditService.containsFundingCurrencies(Lists.newArrayList(gpb));
 
         assertThat(result).isFalse();
     }
@@ -60,20 +60,20 @@ public class ProductServiceTest {
     @Test
     public void should_add_echeance_to_product() {
         // Given
-        Product product = new Product();
-        product.setEcheanceRequests(Lists.<EcheanceRequest>newArrayList());
+        Credit credit = new Credit();
+        credit.setEcheanceRequests(Lists.<EcheanceRequest>newArrayList());
 
         EcheanceRequest echeance = new EcheanceRequest();
         echeance.setActive(true);
 
         long productId = 1L;
-        when(productRepository.findOne(productId)).thenReturn(product);
+        when(creditRepository.findOne(productId)).thenReturn(credit);
 
         // When
-        productService.addEcheanceToProduct(productId, echeance);
+        creditService.addEcheanceToProduct(productId, echeance);
         // Then
 
-        assertThat(product.getEcheanceRequestActive()).hasSize(1).contains(echeance);
+        assertThat(credit.getEcheanceRequestActive()).hasSize(1).contains(echeance);
     }
 
     // TODO: gestion du NPE sur la multiplication du crd
@@ -84,13 +84,13 @@ public class ProductServiceTest {
         echeanceRequest.setActive(true);
         echeanceRequest.setPaymentDate(new DateTime(2014, 2, 28, 0, 0).toDate());
 
-        Product product = new Product();
-        product.getEcheanceRequests().add(echeanceRequest);
+        Credit credit = new Credit();
+        credit.getEcheanceRequests().add(echeanceRequest);
 
         // When
         when(dataService.getCrossChange(Matchers.<Date>any())).thenReturn(BigDecimal.TEN);
 
-        List<EcheanceRequest> valoriseEcheanceRequests = productService.valoriseProduct(product, new DateTime(2014, 2, 3, 0, 0).toDate());
+        List<EcheanceRequest> valoriseEcheanceRequests = creditService.valoriseProduct(credit, new DateTime(2014, 2, 3, 0, 0).toDate());
 
         // Then
         assertThat(valoriseEcheanceRequests).hasSize(1);

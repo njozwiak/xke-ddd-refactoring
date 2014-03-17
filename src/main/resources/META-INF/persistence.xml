@@ -6,7 +6,7 @@
     <persistence-unit name="dddDB">
         <class>com.xebia.domain.Currency</class>
         <class>com.xebia.domain.EcheanceRequest</class>
-        <class>com.xebia.domain.Product</class>
+        <class>com.xebia.domain.Credit</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />

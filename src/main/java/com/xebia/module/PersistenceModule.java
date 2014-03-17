@@ -3,8 +3,8 @@ package com.xebia.module;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.xebia.repository.EcheanceRequestRepository;
-import com.xebia.repository.ProductRepository;
-import com.xebia.service.ProductService;
+import com.xebia.repository.CreditRepository;
+import com.xebia.service.CreditService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,9 +19,9 @@ public class PersistenceModule extends AbstractModule {
         entityManagerFactory = Persistence.createEntityManagerFactory("dddDB");
 
         bind(EcheanceRequestRepository.class);
-        bind(ProductRepository.class);
+        bind(CreditRepository.class);
 
-        bind(ProductService.class);
+        bind(CreditService.class);
     }
 
     @Provides

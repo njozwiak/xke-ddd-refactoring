@@ -9,7 +9,7 @@ import java.util.List;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.extractProperty;
 
-public class ProductTest {
+public class CreditTest {
 
     @Test
     public void should_get_active_echeances() {
@@ -27,11 +27,11 @@ public class ProductTest {
         echeances.add(echeanceRequest1);
         echeances.add(echeanceRequest2);
 
-        Product product = new Product();
-        product.setEcheanceRequests(echeances);
+        Credit credit = new Credit();
+        credit.setEcheanceRequests(echeances);
 
         //WHEN
-        List<EcheanceRequest> echeanceRequestActive = product.getEcheanceRequestActive();
+        List<EcheanceRequest> echeanceRequestActive = credit.getEcheanceRequestActive();
 
         //THEN
         assertThat(echeanceRequestActive).hasSize(1);

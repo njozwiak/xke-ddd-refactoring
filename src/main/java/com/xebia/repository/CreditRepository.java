@@ -1,47 +1,47 @@
 package com.xebia.repository;
 
 import com.google.inject.Inject;
-import com.xebia.domain.Product;
+import com.xebia.domain.Credit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Provider;
 import javax.persistence.EntityManager;
 
-public class ProductRepository {
+public class CreditRepository {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductRepository.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CreditRepository.class);
 
     private Provider<EntityManager> entityManagerProvider;
 
     @Inject
-    public ProductRepository(Provider<EntityManager> entityManagerProvider) {
+    public CreditRepository(Provider<EntityManager> entityManagerProvider) {
         this.entityManagerProvider = entityManagerProvider;
     }
 
-    public Product findOne(Long id) {
+    public Credit findOne(Long id) {
         EntityManager entityManager = entityManagerProvider.get();
 
         try {
-            return entityManager.find(Product.class, id);
+            return entityManager.find(Credit.class, id);
         }
         finally {
             entityManager.close();
         }
     }
 
-    public void save(Product product) {
+    public void save(Credit credit) {
         EntityManager entityManager = entityManagerProvider.get();
 
         try {
             entityManager.getTransaction().begin();
-            entityManager.merge(product);
+            entityManager.merge(credit);
             entityManager.getTransaction().commit();
         }
         catch (Exception e) {
             entityManager.getTransaction().rollback();
 
-            LOGGER.error("Unable to save product: %s", e.getCause());
+            LOGGER.error("Unable to save credit: %s", e.getCause());
         }
         finally {
             entityManager.close();

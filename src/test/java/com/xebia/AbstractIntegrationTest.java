@@ -3,11 +3,11 @@ package com.xebia;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.xebia.domain.Credit;
 import com.xebia.domain.EcheanceRequest;
-import com.xebia.domain.Product;
 import com.xebia.module.PersistenceModule;
 import com.xebia.repository.EcheanceRequestRepository;
-import com.xebia.repository.ProductRepository;
+import com.xebia.repository.CreditRepository;
 import org.junit.Before;
 
 import java.math.BigDecimal;
@@ -16,7 +16,7 @@ import java.util.Date;
 public abstract class AbstractIntegrationTest {
 
     @Inject
-    private ProductRepository productRepository;
+    private CreditRepository creditRepository;
 
     @Inject
     private EcheanceRequestRepository echeanceRequestRepository;
@@ -31,29 +31,29 @@ public abstract class AbstractIntegrationTest {
     }
 
     private void initDatabase() {
-        productRepository.save(createProduct(1L, "produit_1"));
-        Product product = productRepository.findOne(1L);
+        creditRepository.save(createProduct(1L, "produit_1"));
+        Credit credit = creditRepository.findOne(1L);
 
-        echeanceRequestRepository.save(createEcheance(1L, BigDecimal.TEN, new Date(), product));
+        echeanceRequestRepository.save(createEcheance(1L, BigDecimal.TEN, new Date(), credit));
 
     }
 
-    private Product createProduct(Long id, String name) {
-        Product product = new Product();
+    private Credit createProduct(Long id, String name) {
+        Credit credit = new Credit();
 
-        product.setId(id);
-        product.setName(name);
+        credit.setId(id);
+        credit.setName(name);
 
-        return product;
+        return credit;
     }
 
-    private EcheanceRequest createEcheance(Long id, BigDecimal crd, Date date, Product product) {
+    private EcheanceRequest createEcheance(Long id, BigDecimal crd, Date date, Credit credit) {
         EcheanceRequest echeanceRequest = new EcheanceRequest();
 
         echeanceRequest.setId(id);
         echeanceRequest.setCrd(crd);
         echeanceRequest.setPaymentDate(date);
-        echeanceRequest.setProduct(product);
+        echeanceRequest.setCredit(credit);
 
         return echeanceRequest;
     }

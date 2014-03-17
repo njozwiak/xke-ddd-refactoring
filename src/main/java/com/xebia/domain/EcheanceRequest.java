@@ -15,7 +15,7 @@ public class EcheanceRequest {
 
     @ManyToOne
     @JoinColumn(name = "Id")
-    private Product product;
+    private Credit credit;
 
     private BigDecimal crd;
 
@@ -40,12 +40,12 @@ public class EcheanceRequest {
         this.paymentDate = paymentDate;
     }
 
-    public Product getProduct() {
-        return product;
+    public Credit getCredit() {
+        return credit;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setCredit(Credit credit) {
+        this.credit = credit;
     }
 
     public BigDecimal getCrd() {
