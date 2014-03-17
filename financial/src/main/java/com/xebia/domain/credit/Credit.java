@@ -1,6 +1,5 @@
 package com.xebia.domain.credit;
 
-import com.google.common.base.Objects;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.currency.CurrencyBook;
 import com.xebia.domain.echeance.EcheanceRequest;
