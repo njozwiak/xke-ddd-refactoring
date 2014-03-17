@@ -18,7 +18,7 @@ public class EcheanceRequest extends IdValueObject {
         super();
     }
 
-    public EcheanceRequest(Date paymentDate, CreditDecimal crd) {
+    public EcheanceRequest(Date paymentDate, BigDecimal crd) {
         this.paymentDate = paymentDate;
         this.setCrd(crd);
     }

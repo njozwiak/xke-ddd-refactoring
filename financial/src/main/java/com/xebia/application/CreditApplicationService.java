@@ -5,14 +5,14 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
-import com.xebia.domain.currency.Currency;
-import com.xebia.domain.echeance.CreditDecimal;
-import com.xebia.domain.echeance.EcheanceRequest;
-import com.xebia.domain.echeance.EcheanceRequestBuilder;
 import com.xebia.domain.credit.Credit;
 import com.xebia.domain.credit.CreditRepository;
+import com.xebia.domain.currency.Currency;
+import com.xebia.domain.echeance.EcheanceRequest;
+import com.xebia.domain.echeance.EcheanceRequestBuilder;
 import com.xebia.port.adapter.service.CreditDataService;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class CreditApplicationService {
         List<EcheanceRequest> echeanceRequestValuations = Lists.newArrayList();
 
         for (EcheanceRequest echeanceRequest : echeanceRequestActive) {
-            CreditDecimal creditValuation = echeanceRequest.crd();
+            BigDecimal creditValuation = echeanceRequest.crd();
 
             if (containsFundingCurrencies(credit.getCurrencyBook().getCurrencies())) {
                 creditValuation = applyCrossChange(creditValuation, valueDate);
@@ -56,8 +56,8 @@ public class CreditApplicationService {
         credit.addEcheance(echeanceRequest);
     }
 
-    CreditDecimal applyCrossChange(CreditDecimal value, Date date) {
-        CreditDecimal crossChange = dataService.getCrossChange(date);
+    BigDecimal applyCrossChange(BigDecimal value, Date date) {
+        BigDecimal crossChange = dataService.getCrossChange(date);
         return value.divide(crossChange);
     }
 

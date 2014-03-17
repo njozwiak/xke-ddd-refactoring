@@ -1,7 +1,6 @@
 package com.xebia.port.adapter.service;
 
 import com.google.inject.Inject;
-import com.xebia.domain.echeance.CreditDecimal;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -16,9 +15,9 @@ public class CreditDataService {
         this.dataService = dataService;
     }
 
-    public CreditDecimal getCrossChange(Date date) {
+    public BigDecimal getCrossChange(Date date) {
         BigDecimal crossChange = dataService.getCrossChange(date);
-        return new CreditDecimal(crossChange);
+        return crossChange;
     }
 
 }

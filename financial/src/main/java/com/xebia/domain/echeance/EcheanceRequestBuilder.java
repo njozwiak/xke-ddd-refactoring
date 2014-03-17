@@ -1,5 +1,6 @@
 package com.xebia.domain.echeance;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class EcheanceRequestBuilder {
@@ -20,7 +21,7 @@ public class EcheanceRequestBuilder {
         return this;
     }
 
-    public EcheanceRequestBuilder withCrd(CreditDecimal crd) {
+    public EcheanceRequestBuilder withCrd(BigDecimal crd) {
         echeanceRequest.setCrd(crd);
         return this;
     }
