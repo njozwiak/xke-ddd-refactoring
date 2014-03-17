@@ -1,7 +1,7 @@
 package com.xebia.service;
 
-import com.xebia.domain.Role;
-import com.xebia.domain.User;
+import com.xebia.user.Role;
+import com.xebia.user.User;
 
 // Simulation d'une application externe
 public class UserService {
@@ -9,10 +9,8 @@ public class UserService {
     public User getUserById(Long id) {
 
         User user = new User();
-        user.setId(id);
         user.setFirstname("firstName_" + id);
         user.setLastname("lastName_" + id);
-        user.setPassword("password_" + id);
         user.setAddress("address_" + id);
         user.setEmail("email_" + id);
         user.setPhoneNumber("number_" + id);
@@ -22,7 +20,8 @@ public class UserService {
         if (id % 2 == 0) {
             role.setRoleName("trader");
             user.setRole(role);
-        } else {
+        }
+        else {
             role.setRoleName("pricer");
             user.setRole(role);
         }
@@ -30,8 +29,4 @@ public class UserService {
         return user;
     }
 
-    public void changePasswordForUser(Long userId, String password) {
-        User user = getUserById(userId);
-        user.setPassword(password);
-    }
 }
