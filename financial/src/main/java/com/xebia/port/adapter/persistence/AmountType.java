@@ -1,7 +1,7 @@
 package com.xebia.port.adapter.persistence;
 
 import com.google.common.base.Objects;
-import com.xebia.domain.echeance.Montant;
+import com.xebia.domain.echeance.Amount;
 import com.xebia.domain.echeance.CreditDecimal;
 import com.xebia.domain.currency.Currency;
 import org.hibernate.HibernateException;
@@ -17,7 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MontantType implements UserType {
+public class AmountType implements UserType {
 
     @Override
     public int[] sqlTypes() {
@@ -59,7 +59,7 @@ public class MontantType implements UserType {
         String isoCode = (String) StringType.INSTANCE.get(rs, names[2], session);
 
         if (null != value && null != name && null != isoCode) {
-            return new Montant(new CreditDecimal(value), new Currency(name, isoCode));
+            return new Amount(new CreditDecimal(value), new Currency(name, isoCode));
         }
 
         return null;
@@ -72,11 +72,11 @@ public class MontantType implements UserType {
             preparedStatement.setNull(index + 1, LongType.INSTANCE.sqlType());
         }
         else {
-            Montant montant = (Montant) value;
+            Amount amount = (Amount) value;
 
-            CreditDecimalType.INSTANCE.nullSafeSet(preparedStatement, montant.getValue(), index, session);
-            preparedStatement.setObject(index + 1, montant.getCurrency().name());
-            preparedStatement.setObject(index + 2, montant.getCurrency().isoCode());
+            CreditDecimalType.INSTANCE.nullSafeSet(preparedStatement, amount.getValue(), index, session);
+            preparedStatement.setObject(index + 1, amount.getCurrency().name());
+            preparedStatement.setObject(index + 2, amount.getCurrency().isoCode());
         }
 
     }
@@ -87,9 +87,9 @@ public class MontantType implements UserType {
             return null;
         }
 
-        Montant montant = (Montant) value;
+        Amount amount = (Amount) value;
 
-        return new Montant(montant.getValue(), montant.getCurrency());
+        return new Amount(amount.getValue(), amount.getCurrency());
     }
 
     @Override
