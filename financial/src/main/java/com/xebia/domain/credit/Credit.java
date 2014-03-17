@@ -1,10 +1,11 @@
 package com.xebia.domain.credit;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.xebia.domain.currency.Currency;
 import com.xebia.domain.currency.CurrencyBook;
 import com.xebia.domain.echeance.EcheanceRequest;
-import com.xebia.domain.echeance.EcheanceRequestBook;
 import com.xebia.model.Entity;
 
 import java.util.Date;
@@ -111,7 +112,12 @@ public class Credit extends Entity {
     }
 
     public List<EcheanceRequest> getEcheanceRequestActive() {
-        return this.getEcheanceRequestActive();
+        return Lists.newArrayList(Iterables.filter(getEcheanceRequests(), new Predicate<EcheanceRequest>() {
+            @Override
+            public boolean apply(EcheanceRequest echeanceRequest) {
+                return echeanceRequest.active();
+            }
+        }));
     }
 
     public List<EcheanceRequest> getEcheanceRequests() {
