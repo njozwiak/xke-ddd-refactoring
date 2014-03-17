@@ -1,6 +1,5 @@
 package com.xebia.port.adapter.service;
 
-import com.xebia.domain.financialPerson.EmailAddress;
 import com.xebia.domain.financialPerson.FinancialPerson;
 import com.xebia.user.User;
 
