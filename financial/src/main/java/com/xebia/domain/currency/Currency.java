@@ -37,8 +37,22 @@ public class Currency extends IdValueObject {
         this.isoCode = isoCode;
     }
 
-    public boolean equals(Currency currency) {
-        return this.isoCode().equalsIgnoreCase(currency.isoCode());
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Currency)) return false;
+
+        Currency currency = (Currency) o;
+
+        if (!isoCode.equals(currency.isoCode)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return isoCode.hashCode();
     }
 
     public boolean isFundingCurrency() {
