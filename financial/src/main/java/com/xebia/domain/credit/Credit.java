@@ -91,20 +91,27 @@ public class Credit extends Entity {
     }
 
     @Override
-    public boolean equals(Object object) {
-        boolean equalObjects = false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Credit)) return false;
 
-        if (object != null && this.getClass() == object.getClass()) {
-            Credit typedObject = (Credit) object;
-            equalObjects = this.creditId.equals(typedObject.creditId);
-        }
+        Credit credit = (Credit) o;
 
-        return equalObjects;
+        if (!marketDate.equals(credit.marketDate)) return false;
+        if (!name.equals(credit.name)) return false;
+        if (!placeDate.equals(credit.placeDate)) return false;
+        if (!technicalCode.equals(credit.technicalCode)) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(creditId);
+        int result = name.hashCode();
+        result = 31 * result + technicalCode.hashCode();
+        result = 31 * result + marketDate.hashCode();
+        result = 31 * result + placeDate.hashCode();
+        return result;
     }
 
     public List<EcheanceRequest> getEcheanceRequestActive() {
