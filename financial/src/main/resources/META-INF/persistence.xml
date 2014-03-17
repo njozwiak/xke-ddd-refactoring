@@ -6,7 +6,7 @@
     <persistence-unit name="dddDB">
         <mapping-file>META-INF/CustomTypes.hbm.xml</mapping-file>
         <mapping-file>META-INF/Currency.hbm.xml</mapping-file>
-        <mapping-file>META-INF/Product.hbm.xml</mapping-file>
+        <mapping-file>META-INF/Credit.hbm.xml</mapping-file>
         <mapping-file>META-INF/EcheanceRequest.hbm.xml</mapping-file>
         <mapping-file>META-INF/Role.hbm.xml</mapping-file>
         <mapping-file>META-INF/User.hbm.xml</mapping-file>

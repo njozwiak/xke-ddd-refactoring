@@ -2,7 +2,7 @@ package com.xebia.port.adapter.persistence;
 
 import com.google.common.base.Objects;
 import com.xebia.domain.echeance.Montant;
-import com.xebia.domain.echeance.ProductDecimal;
+import com.xebia.domain.echeance.CreditDecimal;
 import com.xebia.domain.currency.Currency;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;
@@ -21,7 +21,7 @@ public class MontantType implements UserType {
 
     @Override
     public int[] sqlTypes() {
-        int[] productDecimalTypes = ProductDecimalType.INSTANCE.sqlTypes();
+        int[] productDecimalTypes = CreditDecimalType.INSTANCE.sqlTypes();
 
         int[] myTypes = new int[productDecimalTypes.length + 2];
 
@@ -59,7 +59,7 @@ public class MontantType implements UserType {
         String isoCode = (String) StringType.INSTANCE.get(rs, names[2], session);
 
         if (null != value && null != name && null != isoCode) {
-            return new Montant(new ProductDecimal(value), new Currency(name, isoCode));
+            return new Montant(new CreditDecimal(value), new Currency(name, isoCode));
         }
 
         return null;
@@ -74,7 +74,7 @@ public class MontantType implements UserType {
         else {
             Montant montant = (Montant) value;
 
-            ProductDecimalType.INSTANCE.nullSafeSet(preparedStatement, montant.getValue(), index, session);
+            CreditDecimalType.INSTANCE.nullSafeSet(preparedStatement, montant.getValue(), index, session);
             preparedStatement.setObject(index + 1, montant.getCurrency().name());
             preparedStatement.setObject(index + 2, montant.getCurrency().isoCode());
         }

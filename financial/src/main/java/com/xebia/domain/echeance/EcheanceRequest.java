@@ -9,7 +9,7 @@ public class EcheanceRequest extends IdValueObject {
 
     private Date paymentDate;
 
-    private ProductDecimal crd;
+    private CreditDecimal crd;
 
     private boolean active = true;
 
@@ -17,12 +17,12 @@ public class EcheanceRequest extends IdValueObject {
         super();
     }
 
-    public EcheanceRequest(Date paymentDate, ProductDecimal crd) {
+    public EcheanceRequest(Date paymentDate, CreditDecimal crd) {
         this.paymentDate = paymentDate;
         this.setCrd(crd);
     }
 
-    public ProductDecimal crd() {
+    public CreditDecimal crd() {
         return crd;
     }
 
@@ -38,7 +38,7 @@ public class EcheanceRequest extends IdValueObject {
         this.paymentDate = paymentDate;
     }
 
-    protected void setCrd(ProductDecimal crd) {
+    protected void setCrd(CreditDecimal crd) {
         this.crd = crd;
     }
 

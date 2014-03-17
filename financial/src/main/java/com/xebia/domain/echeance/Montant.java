@@ -5,19 +5,19 @@ import com.xebia.domain.exception.MontantException;
 
 public class Montant {
 
-    private ProductDecimal value;
+    private CreditDecimal value;
 
     private Currency currency;
 
     public Montant() {
     }
 
-    public Montant(ProductDecimal value, Currency currency) {
+    public Montant(CreditDecimal value, Currency currency) {
         this.value = value;
         this.currency = currency;
     }
 
-    public ProductDecimal getValue() {
+    public CreditDecimal getValue() {
         return value;
     }
 
@@ -27,7 +27,7 @@ public class Montant {
 
     public Montant add(Montant montant) throws MontantException {
         if (this.currency.equals(montant.getCurrency())) {
-            ProductDecimal newValue = this.getValue().add(montant.getValue());
+            CreditDecimal newValue = this.getValue().add(montant.getValue());
             return new Montant(newValue, this.getCurrency());
         } else {
             throw new MontantException("cannot add montant with different currencies");

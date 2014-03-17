@@ -20,7 +20,7 @@ public class EcheanceRequestBuilder {
         return this;
     }
 
-    public EcheanceRequestBuilder withCrd(ProductDecimal crd) {
+    public EcheanceRequestBuilder withCrd(CreditDecimal crd) {
         echeanceRequest.setCrd(crd);
         return this;
     }

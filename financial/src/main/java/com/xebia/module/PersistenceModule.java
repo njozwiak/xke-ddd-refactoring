@@ -2,9 +2,9 @@ package com.xebia.module;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
-import com.xebia.application.ProductApplicationService;
-import com.xebia.domain.product.ProductRepository;
-import com.xebia.infrastructure.persistence.HibernateProductRepository;
+import com.xebia.application.CreditApplicationService;
+import com.xebia.domain.credit.CreditRepository;
+import com.xebia.infrastructure.persistence.HibernateCreditRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,9 +18,9 @@ public class PersistenceModule extends AbstractModule {
     protected void configure() {
         entityManagerFactory = Persistence.createEntityManagerFactory("dddDB");
 
-        bind(ProductRepository.class).to(HibernateProductRepository.class);
+        bind(CreditRepository.class).to(HibernateCreditRepository.class);
 
-        bind(ProductApplicationService.class);
+        bind(CreditApplicationService.class);
     }
 
     @Provides
