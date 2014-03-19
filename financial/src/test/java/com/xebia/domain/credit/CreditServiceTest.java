@@ -1,9 +1,9 @@
-package com.xebia.application;
+package com.xebia.domain.credit;
 
 import com.google.common.collect.Lists;
 import com.xebia.domain.credit.CreditBuilder;
+import com.xebia.domain.credit.CreditService;
 import com.xebia.domain.currency.Currency;
-import com.xebia.domain.echeance.CreditDecimal;
 import com.xebia.domain.echeance.EcheanceRequest;
 import com.xebia.domain.echeance.EcheanceRequestBuilder;
 import com.xebia.domain.credit.Credit;
@@ -22,9 +22,9 @@ import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CreditApplicationServiceTest {
+public class CreditServiceTest {
 
-    private CreditApplicationService productService;
+    private CreditService productService;
 
     @Mock
     private CreditDataService dataService;
@@ -34,7 +34,7 @@ public class CreditApplicationServiceTest {
 
     @Before
     public void init() throws Exception {
-        productService = new CreditApplicationService(dataService, creditRepository);
+        productService = new CreditService(dataService, creditRepository);
     }
 
     @Test

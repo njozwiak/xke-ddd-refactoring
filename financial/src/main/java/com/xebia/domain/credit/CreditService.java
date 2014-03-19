@@ -1,4 +1,4 @@
-package com.xebia.application;
+package com.xebia.domain.credit;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
@@ -17,14 +17,14 @@ import java.util.Date;
 import java.util.List;
 
 @Transactional
-public class CreditApplicationService {
+public class CreditService {
 
     private CreditDataService dataService;
 
     private CreditRepository creditRepository;
 
     @Inject
-    public CreditApplicationService(CreditDataService dataService, CreditRepository creditRepository) {
+    public CreditService(CreditDataService dataService, CreditRepository creditRepository) {
         this.dataService = dataService;
         this.creditRepository = creditRepository;
     }
