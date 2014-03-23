@@ -91,7 +91,7 @@
                             <goal>install-file</goal>
                         </goals>
                         <configuration>
-                            <groupId>workshop-ddd</groupId>
+                            <groupId>xke-ddd-refactoring</groupId>
                             <artifactId>identity</artifactId>
                             <version>1.0</version>
                             <packaging>jar</packaging>
